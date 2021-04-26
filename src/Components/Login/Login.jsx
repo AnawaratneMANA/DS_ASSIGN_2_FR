@@ -1,9 +1,12 @@
 import React, {useState, useEffects} from 'react';
 import './style.css'
+import {createUser} from '../../actions/user'
+import {useDispatch, useSelector} from 'react-redux';
 
 const Login = () => {
+    const dispatch = useDispatch();
     var flag = 'FALSE';
-    const [userData, setUserData] = useState([
+    const [userData, setUserData] = useState(
         {
             userName: '',
             email: '',
@@ -11,7 +14,7 @@ const Login = () => {
             passWord2:'',
             userType : ''
         }
-    ])
+    );
 
     const passWordValidation = (userData) => {
         if(userData.passWord1 === userData.passWord2){
@@ -31,7 +34,7 @@ const Login = () => {
         //submit data
         passWordValidation(userData);
         if(flag === 'PASS'){
-            console.log(userData);
+            dispatch(createUser(userData));
         } else {
             console.log("Password Not Matching");
             clear();
@@ -43,7 +46,7 @@ return (
 
     <div className = 'container'>
     <h2>Registration Form</h2>
-    <form onClick={handleSubmit}>
+    <form onSubmit={handleSubmit}>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">User Name</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"

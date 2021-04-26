@@ -1,6 +1,11 @@
 import axios from 'axios'
-const url = "http://localhost:8093";
+const url = "http://localhost:8073/";
 
 
 //Create API Calling method 
-export const CreateUser = (user) => axios.post(url + "/user", user);
+export const createUser = (user) => {
+    
+    axios.post(url + "user", user);
+    console.log(url)
+    console.log(user)
+}
