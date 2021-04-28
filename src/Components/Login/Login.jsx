@@ -1,6 +1,6 @@
 import React, {useState, useEffects} from 'react';
-import './style.css'
-import {createUser} from '../../actions/user'
+import './style.css';
+import {createUser} from '../../actions/user';
 import {useDispatch, useSelector} from 'react-redux';
 
 const Login = () => {
@@ -30,15 +30,17 @@ const Login = () => {
     }
 
     //Submit Details 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         //submit data
         passWordValidation(userData);
         if(flag === 'PASS'){
             dispatch(createUser(userData));
         } else {
             console.log("Password Not Matching");
-            clear();
-        }  
+            
+        }
+        clear(); 
     }
 
 return (
@@ -79,8 +81,7 @@ return (
         onChange={(e) => setUserData({...userData, passWord2: e.target.value})}/>
     </div>
 
-  <div className="float-Left" onChange={(e) => setUserData(e.target.value)} 
-  onChange={(e) => setUserData({...userData, userType: e.target.value})}>
+  <div className="float-Left" onChange={(e) => setUserData({...userData, userType: e.target.value})}>
         <div class="mb-3 form-check">
             <input type="radio" class="form-check-input" id="exampleCheck1" value="Seller" name="userType"/>
             <label class="form-check-label" for="exampleCheck1">Seller</label>
