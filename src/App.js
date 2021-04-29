@@ -7,8 +7,9 @@ import Navbar from "./Components/Store/Navigation/Navbar";
 const App = () =>   {
     return (
         <div className = "App" >
-            <Navbar/>
-            <Product/>
+            {/*<Navbar/>*/}
+            {/*<Product/>*/}
+            <Login/>
         </div>
     );
 }
