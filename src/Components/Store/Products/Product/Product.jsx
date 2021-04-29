@@ -2,26 +2,28 @@ import React from 'react';
 import {Card, CardMedia, CardActions, Typography, IconButton, CardContent, Icon} from "@material-ui/core";
 import { AddShoppingCart } from '@material-ui/icons';
 import useStyle from './style'
-const Product = ({product }) => {
+const Product = ({items }) => {
     //Connect the style here.
     const classes = useStyle();
+    //Testing
+    console.log(items);
     return (
         <Card className={classes.root}>
             <CardMedia className={classes.media}
-                       image={product.image}
-                       title={product.name}/>
+                       image={items.image}
+                       title={items.title}/>
 
                        <CardContent>
                            <div className={classes.cardContent}>
                                <Typography variant= "h5" gutterBottom>
-                                   {product.name}
+                                   {items.name}
                                </Typography>
                                <Typography variant= "h5" gutterBottom>
-                                   {product.price}
+                                   {items.price}
                                </Typography>
                            </div>
                            <Typography variant= "body2" color= "textSecondary">
-                               {product.description}
+                               {items.description}
                            </Typography>
                        </CardContent>
 

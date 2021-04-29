@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Grid} from '@material-ui/core';
 import Product from "./Product/Product";
 import useStyle from "./styles";
+import {useSelector} from "react-redux";
 /**
  * Use useEffect to call the method and get the object list as json.
  * Store it in the product array and iterate like this
@@ -17,14 +18,16 @@ const products = [
 ]
 
 const Products = () => {
+    const items = useSelector((state) => state.items );
+    //Here there is a bug in server response it not a JSON type object fix it and remove this.
     const classes = useStyle();
     return (
         <main className={classes.content}>
             <div className={classes.toolbar}/>
             <Grid container justify= "center" spacing={4}>
-                {products.map((product) => (
-                    <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                        <Product product={product}/>
+                {items.map((myJsonString) => (
+                    <Grid item key={myJsonString.id} xs={12} sm={6} md={4} lg={3}>
+                        <Product items={myJsonString}  />
                     </Grid>
                 ))}
             </Grid>
