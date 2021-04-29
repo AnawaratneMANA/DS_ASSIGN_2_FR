@@ -1,6 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Grid} from '@material-ui/core';
 import Product from "./Product/Product";
+import useStyle from "./styles";
+/**
+ * Use useEffect to call the method and get the object list as json.
+ * Store it in the product array and iterate like this
+ * UseEffects should run only one time when loading the page.
+ */
 
 const products = [
     //Dummy values.
@@ -9,9 +15,15 @@ const products = [
     { id: 1, name: "PC", description: "HP Elitebook 840", price: '320,000/=', image: 'https://www.notebookcheck.net/uploads/tx_nbc2/4zu3_HP_Elitebook_840_G5.jpg'}
 ]
 
+const fetchProductItems = async () => {
+    //Call the DB method.
+}
+
 const Products = () => {
+    const classes = useStyle();
     return (
-        <main>
+        <main className={classes.content}>
+            <div className={classes.toolbar}/>
             <Grid container justify= "center" spacing={4}>
                 {products.map((product) => (
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
