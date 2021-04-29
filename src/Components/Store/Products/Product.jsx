@@ -4,9 +4,9 @@ import Product from "./Product/Product";
 
 const products = [
     //Dummy values.
-    { id: 1, name: "Macbook", description: "Apple M1 Macbook Air", price: '239,000/='},
-    { id: 1, name: "Macbook", description: "Apple M1 Macbook Pro", price: '345,000/='},
-    { id: 1, name: "PC", description: "HP Elitebook 840", price: '320,000/='}
+    { id: 1, name: "Macbook", description: "Apple M1 Macbook Air", price: '239,000/=', image: 'https://cdn.pocket-lint.com/r/s/970x/assets/images/152137-laptops-review-apple-macbook-pro-2020-review-image1-qy49zfkn53-jpg.webp'},
+    { id: 1, name: "Macbook", description: "Apple M1 Macbook Pro", price: '345,000/=', image: 'https://i.pcmag.com/imagery/reviews/05CbcW9cP4o0rqbCnVB2OFZ-1..1584707541.jpg'},
+    { id: 1, name: "PC", description: "HP Elitebook 840", price: '320,000/=', image: 'https://www.notebookcheck.net/uploads/tx_nbc2/4zu3_HP_Elitebook_840_G5.jpg'}
 ]
 
 const Products = () => {
