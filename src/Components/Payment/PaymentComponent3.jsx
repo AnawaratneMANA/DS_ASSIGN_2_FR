@@ -3,11 +3,8 @@ import "./PaymentStyle.css";
 import {useDispatch} from 'react-redux';
 import {Form, Button} from 'react-bootstrap';
 import { addCreditCardPayment } from "../../actions/creditcard";
-import {Container, Paper} from '@material-ui/core';
 
-
-function PaymentComponent1() {
-    const dispatch = useDispatch();
+function PaymentComponent3() {
 
     const [creditCardData, setCreditCardData] = useState(
         {
@@ -26,15 +23,14 @@ function PaymentComponent1() {
         dispatch(addCreditCardPayment(creditCardData));
     }
     return (
-        
         <div className="PaymentComponent1">
             <div className="elements">
-                <h1>Credit Card Payment</h1>
+                <h1> Update Credit Card Payment</h1>
                 <Form className="form" onSubmit = {submit}>
-                    <Form.Group controlId="formBasicEmail" className="formelements">
+                    <Form.Group controlId="CardNumber" className="formelements">
                         <Form.Label>Credit Card Number</Form.Label>
                         <Form.Control type="text" placeholder="Enter the credit card number" 
-                         value = {creditCardData.CreditCardNumber}
+                        value = {creditCardData.CreditCardNumber}
                         onChange={(e) => setCreditCardData({...creditCardData, CreditCardNumber: e.target.value})}/>
                     </Form.Group>
 
@@ -60,9 +56,9 @@ function PaymentComponent1() {
                         Submit
                     </Button>
                 </Form>
-                </div>
+            </div>
         </div>
     )
 }
 
-export default PaymentComponent1;
+export default PaymentComponent3
