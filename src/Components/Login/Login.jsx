@@ -50,7 +50,7 @@ return (
     <h2>Registration Form</h2>
     <form onSubmit={handleSubmit}>
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">User Name</label>
+        <label for="exampleInputEmail1" class="form-label"> User Name </label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
         value={userData.userName}
         onChange={(e) => setUserData({...userData, userName: e.target.value})}
