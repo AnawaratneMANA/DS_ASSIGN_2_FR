@@ -1,6 +1,6 @@
 import React, {useState, useEffects} from 'react';
-import './style.css'
-import {createUser} from '../../actions/user'
+import './style.css';
+import {createUser} from '../../actions/user';
 import {useDispatch, useSelector} from 'react-redux';
 
 const Login = () => {
