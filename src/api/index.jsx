@@ -13,8 +13,7 @@ export const createItem = (item) =>  axios.post(url + "item", item);
 
 
 //Add Credit Card Payment 
-console.log(creditCardData);
-export const addCreditCardPayment = (creditCardData) =>  axios.post(url + "addCreditCardDetails/", creditCardData);
+export const addCreditCardPayment = (creditCardData) =>  axios.post(url + "addCreditCardDetails", creditCardData);
 //Update Credit Card Payment 
 export const updateCreditCardPayment = (creditCardData) =>  axios.post(url + "addCreditCardDetails", creditCardData);//this is wrong
 

@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
+import axios from "axios";
+import { useSelector } from 'react-redux';
 
-class ItemList extends Component {
+const ItemList = ({userId}) => {
 
-    constructor(props){
-        super(props)
+    // constructor(props){
+    //     super(props)
 
-        this.state = {
-            items:[]
-        }
-    }
+    //     this.state = {
+    //         items:[]
+    //     }
+    // }
 
-    render() {
+
+    const items = useSelector((state) => state.items );
+
+    //Remove Later
+    // componentDidMount(){
+    //     axios.get("http://localhost:8073/displayCreditCardDetails/").then(response => {
+    //         this.setState({details: response.data});
+    //     }).catch((err) => {
+    //         console.log(err);
+    //     })
+    // }
+
         return (
             <div>
                <h2 className="text-center">Item List</h2>
@@ -28,14 +41,12 @@ class ItemList extends Component {
 
                        <tbody>
                            {
-                               this.state.items.map(
+                               items.map(
                                    item => 
                                    <tr key = {item.id}>
                                        <td>{item.title}</td>
                                        <td>{item.price}</td>
-                                       <td>{item.description}</td>
-                                       <td>{item.image}</td>
-                                      
+                                       <td>{item.description}</td>                    
                                   </tr>
                                )
                            
@@ -46,6 +57,5 @@ class ItemList extends Component {
             </div>
         );
     }
-}
 
 export default ItemList;
