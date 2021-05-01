@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import {Grid} from '@material-ui/core';
+import {Container, Grid, Input} from '@material-ui/core';
 import Product from "./Product/Product";
 import useStyle from "./styles";
 import {useSelector} from "react-redux";
+import SearchBar from 'material-ui-search-bar';
 /**
  * Use useEffect to call the method and get the object list as json.
  * Store it in the product array and iterate like this
@@ -21,22 +22,27 @@ const Products = () => {
     const items = useSelector((state) => state.items );
     //Here there is a bug in server response it not a JSON type object fix it and remove this.
     const classes = useStyle();
+
     //Creating a Hook for Search Items.
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState("");
+
     return (
         <main className={classes.content}>
-
-            <input type="text" placeholder="Search..." onChange={(event) => {
-                setSearchTerm(event.target.value);
-            }}>Search</input> 
-
+            {/*Add the search input here.*/}
+            <p>Search Items</p>
+            <Container maxWidth="md">
+                <input type="text" value={searchTerm} placeholder="Search Items.."
+                onChange={(event) => setSearchTerm(event.target.value)}
+                />
+            </Container>
             <div className={classes.toolbar}/>
             <Grid container justify= "center" spacing={4}>
-                {items.filter((value) => {
+                {items.filter((val) => {
                     if(searchTerm == ""){
-                        console.log("Condition inside - " + value);
-                        return value;
-                     }
+                        return val
+                    } else if(val.description.toLowerCase().includes(searchTerm.toLowerCase())){
+                        return val
+                    }
                 }).map((myJsonString) => (
                     <Grid item key={myJsonString.id} xs={12} sm={6} md={4} lg={3}>
                         <Product items={myJsonString}  />

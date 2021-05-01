@@ -1,6 +1,8 @@
 import React, {useState, useEffects} from 'react';
 import {createItem} from '../../actions/item';
 import {useDispatch, useSelector} from 'react-redux';
+import ItemList from './ItemList';
+import { Link } from 'react-router-dom'
 import './style.css'
 function AddItems() {
 
@@ -59,7 +61,12 @@ function AddItems() {
                 <br />
 
                 <div className="text-right">
-                    <button type = 'submit' className="btn btn-primary">Add</button>
+                        <button type = 'submit' className="btn btn-primary">Add</button>      
+                </div>
+                <div className="text-right">
+                <Link to="/itemlist">
+                    <button type = 'button' className="btn btn-primary">List</button>
+                </Link>
                 </div>
             </form>
             </div>

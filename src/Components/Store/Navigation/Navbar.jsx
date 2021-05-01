@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 //Use as the Logo. (Temp)
 import ShopIcon from '../Icons/shop-icon.png';
 import useStyles from './styles';
+
 const Navbar = () => {
     const classes = useStyles();
     return (<React.Fragment>
@@ -16,7 +17,7 @@ const Navbar = () => {
                         Store
                     </Link>
                 </Typography>
-                
+
                 <Typography variant="body1" className={classes.title}>
                     <Link to='/payment'>
                         Payment

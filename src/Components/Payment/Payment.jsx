@@ -10,6 +10,10 @@ function Payment() {
                     <PaymentComponent1/>
                     <PaymentComponent2/>
                 </div>
+                <div className="row">
+                    <PaymentComponent1/>
+                    <PaymentComponent2/>
+                </div>
             </div>
             
         </div>

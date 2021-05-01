@@ -10,9 +10,9 @@ export default makeStyles((theme) => ({
         flexGrow: 1,
     },
     searchBar: {
-        marginTop: "20px",
-        width: "300px",
-        height: '30px',
+        marginTop: "50px",
+        width: "100%",
+        height: '50px'
     }
 
 }))
