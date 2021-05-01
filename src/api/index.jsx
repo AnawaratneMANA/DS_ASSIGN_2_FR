@@ -13,4 +13,8 @@ export const createItem = (item) =>  axios.post(url + "item", item);
 
 
 //Add Credit Card Payment 
-export const addCreditCardPayment = (item) =>  axios.post(url + "addCreditCardDetails", item);
+export const addCreditCardPayment = (creditCardData) =>  axios.post(url + "addCreditCardDetails", creditCardData);
+
+//Add Mobile Payment
+export const addMobilePayment = (creditCardData) =>  axios.post(url + "addPhoneDetails", creditCardData);
+

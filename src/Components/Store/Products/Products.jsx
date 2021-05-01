@@ -21,11 +21,23 @@ const Products = () => {
     const items = useSelector((state) => state.items );
     //Here there is a bug in server response it not a JSON type object fix it and remove this.
     const classes = useStyle();
+    //Creating a Hook for Search Items.
+    const [searchTerm, setSearchTerm] = useState('')
     return (
         <main className={classes.content}>
+
+            <input type="text" placeholder="Search..." onChange={(event) => {
+                setSearchTerm(event.target.value);
+            }}>Search</input> 
+
             <div className={classes.toolbar}/>
             <Grid container justify= "center" spacing={4}>
-                {items.map((myJsonString) => (
+                {items.filter((value) => {
+                    if(searchTerm == ""){
+                        console.log("Condition inside - " + value);
+                        return value;
+                     }
+                }).map((myJsonString) => (
                     <Grid item key={myJsonString.id} xs={12} sm={6} md={4} lg={3}>
                         <Product items={myJsonString}  />
                     </Grid>

@@ -8,6 +8,7 @@ import Product from "./Components/Store/Products/Products";
 import Navbar from "./Components/Store/Navigation/Navbar";
 import Payment from "./Components/Payment/Payment";
 import { getItems} from "./actions/item";
+import AddItems from './Components/AddItems/AddItems';
 
 const App = () =>   {
     const dispatch = useDispatch();
@@ -22,11 +23,19 @@ const App = () =>   {
     },[dispatch])
 
     return (
-        <div className = "App" >
-            {/*<Navbar/>*/}
-            {/*<Product />*/}
+        <div className = "" >
+            <Router>
+                <Navbar/>
+                <Switch>
+                    <Route exact path="/" component={Product}></Route>
+                    <Route path="/payment" component={Payment}></Route>
+                    <Route path="/registration" component={Login}></Route>
+                    <Route path="/store" component={Product}></Route>
+                    <Route path="/additem" component={AddItems}></Route>
+                </Switch>
+            </Router>
 
-             <Login/>
+             {/* <Login/> */}
 
             {/* for checking purpose */}
             {/*<Payment/>*/}

@@ -31,6 +31,7 @@ const Login = () => {
 
     //Submit Details 
     const handleSubmit = (e) => {
+        //Stop page from loading.
         e.preventDefault();
         //submit data
         passWordValidation(userData);
@@ -54,6 +55,9 @@ return (
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
         value={userData.userName}
         onChange={(e) => setUserData({...userData, userName: e.target.value})}
+
+        //Three dots ... represent spread operators or rest parameters. It allows an array expression or string or
+        // anything which can be iterating to be expanded in places where zero or more arguments for function calls or elements for array are expected.
         
         />
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>

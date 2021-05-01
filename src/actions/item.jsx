@@ -10,3 +10,15 @@ export const getItems = () => async (dispatch) => {
     }
     //Get return value.
 }
+
+export const createItem = (item) => async (dispatch) => {
+    try{
+        const { data } = await api.createItem(item);
+        //Get the return value. (Paylaod data = return value from the API.)
+        dispatch({type: 'CREATE', payload: data });
+    } catch (error){
+        console.log(error);
+    }
+    //Get return value.
+}
+
