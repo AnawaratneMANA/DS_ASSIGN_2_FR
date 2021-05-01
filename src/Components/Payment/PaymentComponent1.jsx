@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import {Form, Button} from 'react-bootstrap';
 import { addCreditCardPayment } from "../../actions/creditcard";
 import {Container, Paper} from '@material-ui/core';
-import "./PaymentStyle2.css";
+
 
 function PaymentComponent1() {
     const dispatch = useDispatch();
@@ -27,8 +27,8 @@ function PaymentComponent1() {
     }
     return (
         
-        <Container className="PaymentComponent1" maxWidth={"sm"}>
-            <Paper className="elements">
+        <div className="PaymentComponent1">
+            <div className="elements">
                 <h1>Credit Card Payment</h1>
                 <Form className="form" onSubmit = {submit}>
                     <Form.Group controlId="formBasicEmail" className="formelements">
@@ -60,9 +60,9 @@ function PaymentComponent1() {
                         Submit
                     </Button>
                 </Form>
-                </Paper>
-            </Container>
+                </div>
+        </div>
     )
 }
 
-export default PaymentComponent1
+export default PaymentComponent1;

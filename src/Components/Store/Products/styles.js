@@ -10,9 +10,26 @@ export default makeStyles((theme) => ({
         flexGrow: 1,
     },
     searchBar: {
-        marginTop: "50px",
-        width: "100%",
-        height: '50px'
+        marginTop: "50px"
+    },
+
+    searchBarHeading: {
+        fontFamily: [
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+        fontStyle: 'normal',
+        fontDisplay: 'swap',
+        fontWeight: 400,
+        fontSize: 28,
     }
 
 }))

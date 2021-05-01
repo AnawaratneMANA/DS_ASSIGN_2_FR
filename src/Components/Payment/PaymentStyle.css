@@ -9,7 +9,6 @@
     max-height: 400px;
     min-width: 100px;
     background-color: lightblue;
-    z-index: 1;
 }
 
 .PaymentComponent2 {
@@ -23,7 +22,6 @@
     max-height: 400px;
     min-width: 100px;
     background-color: lightblue;
-    z-index: 1;
 }
 
 .elements {
@@ -50,7 +48,6 @@ h1 {
 
 .container {
     display: flex;
-    z-index: -1;
     margin-left: 5px;
     margin-right: 5px;
     width: 100%;
