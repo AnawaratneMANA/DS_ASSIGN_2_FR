@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 import {Form, Button} from 'react-bootstrap';
 import { addCreditCardPayment } from "../../actions/creditcard";
 import {Container, Paper} from '@material-ui/core';
+import axios from "axios";
 
 
 function PaymentComponent1() {
@@ -23,7 +24,12 @@ function PaymentComponent1() {
         e.preventDefault();
         console.log(creditCardData);
         //method to be added
-        dispatch(addCreditCardPayment(creditCardData));
+        axios.post("http://localhost:8073/addCreditCardDetails", creditCardData).then(() => {
+            console.log(creditCardData);
+        }).catch((err) => {
+            console.log(err);
+        })
+        //dispatch(addCreditCardPayment(creditCardData));
     }
     return (
         

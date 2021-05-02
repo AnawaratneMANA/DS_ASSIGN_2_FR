@@ -12,8 +12,7 @@ function Payment() {
                     <PaymentComponent2/>
                 </div>
                 <div className="row">
-                    <PaymentComponent2/>
-                    {/* <PaymentComponent5/> */}
+                    <PaymentComponent1/>
                 </div>
             </div>
             

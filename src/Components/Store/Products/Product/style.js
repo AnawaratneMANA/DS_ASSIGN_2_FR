@@ -19,4 +19,27 @@ export default makeStyles(() => ({
         justifyContent: "space-between",
 
     },
+    fontItem: {
+      color: "red",
+    },
+    buyNowButton: {
+        fontSize: 19,
+        fontFamily: [
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+        fontStyle: 'normal',
+        fontDisplay: 'swap',
+        fontWeight: 400,
+    },
+    background: 'red',
+
 }));
