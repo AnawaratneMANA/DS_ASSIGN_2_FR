@@ -1,6 +1,6 @@
 import React, {useState, useEffects} from 'react';
-import './style.css'
-import {createUser} from '../../actions/user'
+import './style.css';
+import {createUser} from '../../actions/user';
 import {useDispatch, useSelector} from 'react-redux';
 
 const Login = () => {
@@ -31,6 +31,7 @@ const Login = () => {
 
     //Submit Details 
     const handleSubmit = (e) => {
+        //Stop page from loading.
         e.preventDefault();
         //submit data
         passWordValidation(userData);
@@ -50,10 +51,13 @@ return (
     <h2>Registration Form</h2>
     <form onSubmit={handleSubmit}>
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">User Name</label>
+        <label for="exampleInputEmail1" class="form-label"> User Name </label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
         value={userData.userName}
         onChange={(e) => setUserData({...userData, userName: e.target.value})}
+
+        //Three dots ... represent spread operators or rest parameters. It allows an array expression or string or
+        // anything which can be iterating to be expanded in places where zero or more arguments for function calls or elements for array are expected.
         
         />
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>

@@ -7,6 +7,7 @@ import App from './App';
 //Create Reducer and Link here.
 import reducers from './reducers'
 
+//Redux Store.
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 render(
