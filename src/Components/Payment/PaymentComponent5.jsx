@@ -4,12 +4,12 @@ import axios from 'axios';
 
 const Payment = props =>(
     <tr>
-        <td>{props.displayCreditCardDetails._id}</td>
+        <td>{props.displayCreditCardDetails.id}</td>
         <td>{props.displayCreditCardDetails.userId}</td>
-        <td>{props.displayCreditCardDetails.CreditCardNumber}</td>
-        <td>{props.displayCreditCardDetails.CreditCardUser}</td>
-        <td>{props.displayCreditCardDetails.Amount}</td>
-        <td>{props.displayCreditCardDetails.CVC_Number}</td>
+        <td>{props.displayCreditCardDetails.creditCardNumber}</td>
+        <td>{props.displayCreditCardDetails.creditCardUser}</td>
+        <td>{props.displayCreditCardDetails.amount}</td>
+        <td>{props.displayCreditCardDetails.cvc_Number}</td>
         {/* <td>
             <Link to={"/EditStudent/"+props.details._id}>edit</Link> | <a href="/DisplayStudent" onClick={() => {
             props.deleteStudent(props.student._id)}}>delete</a>
@@ -24,11 +24,13 @@ export class PaymentComponent5 extends Component {
         super(props);
         //this.deleteStudent = this.deleteStudent.bind(this);
         this.state = {displayCreditCardDetails: []};
-
     }
     componentDidMount() {
-        axios.get("http://localhost:8073/displayCreditCardDetails").then(response => {
-            this.setState({displayCreditCardDetails: response.data});
+        axios.get("http://localhost:8073/displayCreditCardDetails")
+            .then(response => {
+            console.log("error going 3");
+                 this.setState({displayCreditCardDetails: response.data})
+                console.log("error going 5");
         }).catch((err) => {
             console.log("error going 1");
         })
@@ -43,32 +45,34 @@ export class PaymentComponent5 extends Component {
     //         student: this.state.student.filter(el => el._id !== id)
     //     })
     // }
-
+//
     paymentList(){
         return this.state.displayCreditCardDetails.map(currentdetails => {
-            return <Payment payment = {currentdetails} deleteDetails = {this.deleteDetails} key ={currentdetails._id}/>;
+            return <Payment displayCreditCardDetails = {currentdetails} deleteDetails = {this.deleteDetails} key ={currentdetails._id}/>;
         })
     }
     render() {
         return (
-            <div>
-                <div>
-                <h3>Credit Card Table</h3>
-                <table className="table">
-                    <thead className= "thead-light">
-                    <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">userID</th>
-                        <th scope="col">CreditCardNumber</th>
-                        <th scope="col">CreditCardUser</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">CVC_Number</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {this.paymentList()}
-                    </tbody>
-                </table>
+            <div className="PaymentComponent5">
+                <div className="elements">
+                    <h1>Credit Card Table</h1>
+                    <div className= "inside">
+                        <table className="table">
+                            <thead className= "thead-light">
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">userID</th>
+                                <th scope="col">CreditCardNumber</th>
+                                <th scope="col">CreditCardUser</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">CVC_Number</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {this.paymentList()}
+                            </tbody>
+                        </table>
+                    </div>
             </div>
             </div>
         )

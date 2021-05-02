@@ -6,15 +6,15 @@ import "./PaymentStyle.css";
 function Payment() {
     return (<React.Fragment>
             <div className="Payment">
-            <div className="container">
-                <div className="row">
-                    <PaymentComponent1/>
-                    <PaymentComponent2/>
+                <div className="container">
+                    <div className="row">
+                        <PaymentComponent1/>
+                        <PaymentComponent1/>
+                    </div>
+                    <div className="row">
+                        <PaymentComponent5/>
+                    </div>
                 </div>
-                <div className="row">
-                    <PaymentComponent1/>
-                </div>
-            </div>
             
         </div>
     </React.Fragment>)
