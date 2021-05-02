@@ -20,6 +20,7 @@ const products = [
 ]
 
 const Products = () => {
+    //fetch items from the redux store.
     const items = useSelector((state) => state.items );
     //Here there is a bug in server response it not a JSON type object fix it and remove this.
     const classes = useStyle();

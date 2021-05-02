@@ -20,7 +20,7 @@ function PaymentComponent3() {
         e.preventDefault();
         console.log(creditCardData);
         //method to be added
-        dispatch(addCreditCardPayment(creditCardData));
+        //dispatch(addCreditCardPayment(creditCardData));
     }
     return (
         <div className="PaymentComponent1">
