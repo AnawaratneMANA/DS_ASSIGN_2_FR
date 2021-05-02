@@ -4,12 +4,12 @@ import axios from 'axios';
 
 const Payment = props =>(
     <tr>
-        <td>{props.details._id}</td>
-        <td>{props.details.userId}</td>
-        <td>{props.details.CreditCardNumber}</td>
-        <td>{props.details.CreditCardUser}</td>
-        <td>{props.details.Amount}</td>
-        <td>{props.details.CVC_Number}</td>
+        <td>{props.displayCreditCardDetails._id}</td>
+        <td>{props.displayCreditCardDetails.userId}</td>
+        <td>{props.displayCreditCardDetails.CreditCardNumber}</td>
+        <td>{props.displayCreditCardDetails.CreditCardUser}</td>
+        <td>{props.displayCreditCardDetails.Amount}</td>
+        <td>{props.displayCreditCardDetails.CVC_Number}</td>
         {/* <td>
             <Link to={"/EditStudent/"+props.details._id}>edit</Link> | <a href="/DisplayStudent" onClick={() => {
             props.deleteStudent(props.student._id)}}>delete</a>
@@ -17,19 +17,20 @@ const Payment = props =>(
     </tr>
 )
 
+
 export class PaymentComponent5 extends Component {
 
     constructor(props) {
         super(props);
         //this.deleteStudent = this.deleteStudent.bind(this);
-        this.state = {details: []};
+        this.state = {displayCreditCardDetails: []};
 
     }
     componentDidMount() {
-        axios.get("http://localhost:8073/displayCreditCardDetails/").then(response => {
-            this.setState({details: response.data});
+        axios.get("http://localhost:8073/displayCreditCardDetails").then(response => {
+            this.setState({displayCreditCardDetails: response.data});
         }).catch((err) => {
-            console.log(err);
+            console.log("error going 1");
         })
     }
 
@@ -44,7 +45,7 @@ export class PaymentComponent5 extends Component {
     // }
 
     paymentList(){
-        return this.state.details.map(currentdetails => {
+        return this.state.displayCreditCardDetails.map(currentdetails => {
             return <Payment payment = {currentdetails} deleteDetails = {this.deleteDetails} key ={currentdetails._id}/>;
         })
     }
@@ -65,7 +66,7 @@ export class PaymentComponent5 extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {this.paymentList()}
+                        {this.paymentList()}
                     </tbody>
                 </table>
             </div>

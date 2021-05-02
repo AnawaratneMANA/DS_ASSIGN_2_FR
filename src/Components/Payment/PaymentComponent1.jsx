@@ -12,10 +12,10 @@ function PaymentComponent1() {
     const [creditCardData, setCreditCardData] = useState(
         {
             userId : "F125",
-            CreditCardNumber : " ",
-            CreditCardUser : " ",
-            Amount : 0,
-            CVC_Number : 0
+            creditCardNumber : " ",
+            creditCardUser : " ",
+            amount : 0,
+            cvc_Number : 0
         }
     )
 
@@ -34,27 +34,27 @@ function PaymentComponent1() {
                     <Form.Group controlId="formBasicEmail" className="formelements">
                         <Form.Label>Credit Card Number</Form.Label>
                         <Form.Control type="text" placeholder="Enter the credit card number" 
-                         value = {creditCardData.CreditCardNumber}
-                        onChange={(e) => setCreditCardData({...creditCardData, CreditCardNumber: e.target.value})}/>
+                         value = {creditCardData.creditCardNumber}
+                        onChange={(e) => setCreditCardData({...creditCardData, creditCardNumber: e.target.value})}/>
                     </Form.Group>
 
                     <Form.Group controlId="CardOwnerName" className="formelements">
                         <Form.Label>Credit Card Owner</Form.Label>
                         <Form.Control type="text" placeholder="Enter the credit card owner"
-                         value = {creditCardData.CreditCardUser}
-                         onChange={(e) => setCreditCardData({...creditCardData, CreditCardUser: e.target.value})}/>
+                         value = {creditCardData.creditCardUser}
+                         onChange={(e) => setCreditCardData({...creditCardData, creditCardUser: e.target.value})}/>
                     </Form.Group>
                     <Form.Group controlId="CVCNumber" className="formelements">
                         <Form.Label>CVC Number</Form.Label>
                         <Form.Control type="text" placeholder="Enter the CVC number" 
-                        value = {creditCardData.CVC_Number}
-                        onChange={(e) => setCreditCardData({...creditCardData, CVC_Number: e.target.value})}/>
+                        value = {creditCardData.cvc_Number}
+                        onChange={(e) => setCreditCardData({...creditCardData, cvc_Number: e.target.value})}/>
                     </Form.Group>
                     <Form.Group controlId="Amount " className="formelements">
                         <Form.Label>Amount</Form.Label>
                         <Form.Control type="text" placeholder="Amount" 
-                        value = {creditCardData.Amount}
-                        onChange={(e) => setCreditCardData({...creditCardData, Amount: e.target.value})}/>
+                        value = {creditCardData.amount}
+                        onChange={(e) => setCreditCardData({...creditCardData, amount: e.target.value})}/>
                     </Form.Group>
                     <Button variant="primary" type="submit" className="formelements">
                         Submit
