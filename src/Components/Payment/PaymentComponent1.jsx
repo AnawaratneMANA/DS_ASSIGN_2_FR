@@ -36,6 +36,7 @@ function PaymentComponent1() {
         <div className="PaymentComponent1">
             <div className="elements">
                 <h1>Credit Card Payment</h1>
+                <div className= "inside">
                 <Form className="form" onSubmit = {submit}>
                     <Form.Group controlId="formBasicEmail" className="formelements">
                         <Form.Label>Credit Card Number</Form.Label>
@@ -66,6 +67,7 @@ function PaymentComponent1() {
                         Submit
                     </Button>
                 </Form>
+                </div>
                 </div>
         </div>
     )
