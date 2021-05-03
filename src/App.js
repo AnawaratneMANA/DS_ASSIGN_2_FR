@@ -23,8 +23,8 @@ const App = () =>   {
 
     return (
         <div className = "App" >
-            {/*<Navbar/>*/}
-            {/*<Product />*/}
+            <Navbar/>
+            <Product />
 
              <Login/>
 
