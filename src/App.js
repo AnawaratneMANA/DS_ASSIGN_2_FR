@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useEffect} from 'react'
 import { useDispatch } from "react-redux";
-import Login from './Components/Login/Login'
+import Registration from './Components/Registration/Registration'
 import {BrowserRouter as Router, Switch, Link, Route} from 'react-router-dom';
 //Testing Import Removed before pushing to the Repository.
 import Product from "./Components/Store/Products/Products";
@@ -29,7 +29,7 @@ const App = () =>   {
                 <Switch>
                     <Route exact path="/" component={Product}></Route>
                     <Route path="/payment" component={Payment}></Route>
-                    <Route path="/registration" component={Login}></Route>
+                    <Route path="/registration" component={Registration}></Route>
                     <Route path="/store" component={Product}></Route>
                     <Route path="/additem" component={AddItems}></Route>
                     <Route path="/itemlist" >

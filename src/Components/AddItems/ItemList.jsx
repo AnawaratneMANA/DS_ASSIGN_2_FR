@@ -20,7 +20,7 @@ const ItemList = ({userId}) => {
     //     axios.get("http://localhost:8073/displayCreditCardDetails/").then(response => {
     //         this.setState({details: response.data});
     //     }).catch((err) => {
-    //         console.log(err);
+    //         console.Login(err);
     //     })
     // }
 

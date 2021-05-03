@@ -37,10 +37,10 @@ export class PaymentComponent5 extends Component {
     }
 
     // deleteStudent(id) {
-    //     console.log("i:" +id);
+    //     console.Login("i:" +id);
     //     document.write("i:" +id)
     //     axios.delete('http://localhost:8070/student/delete/'+id)
-    //         .then(res => console.log(res.data));
+    //         .then(res => console.Login(res.data));
     //     this.setState({
     //         student: this.state.student.filter(el => el._id !== id)
     //     })
