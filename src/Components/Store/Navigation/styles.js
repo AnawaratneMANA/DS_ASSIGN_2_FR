@@ -64,5 +64,8 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             width: '20ch',
         },
+
     },
+
+    //Add Styles to the Navigation bar buttons.
 }));
