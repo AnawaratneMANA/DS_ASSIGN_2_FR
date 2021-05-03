@@ -2,6 +2,8 @@ import React, { useState, useEffects, useDispatch } from 'react'
 import { Avatar, Button, FormControlLabel, Grid, TextField, Typography, Paper, Checkbox } from "@material-ui/core";
 import makeStyles from "./styles";
 import { createUser } from '../../../actions/user'
+import {CheckBox} from "@material-ui/icons";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 const Registration = () => {
 
     const dispatch = useDispatch();
@@ -44,7 +46,7 @@ const Registration = () => {
     }
 
 
-    const classes = makeStyle();
+    const classes = makeStyles();
     return (
         <div className={classes.paper}>
             <Avatar className={classes.avatar}>
