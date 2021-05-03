@@ -10,6 +10,7 @@ import Payment from "./Components/Payment/Payment";
 import { getItems} from "./actions/item";
 import AddItems from './Components/AddItems/AddItems';
 import ItemList from './Components/AddItems/ItemList';
+import LoginPage from "./Components/Login/LoginPage";
 const App = () =>   {
     const dispatch = useDispatch();
     //Store Population Method.
@@ -27,7 +28,7 @@ const App = () =>   {
             <Router>
                 <Navbar/>
                 <Switch>
-                    <Route exact path="/" component={Product}></Route>
+                    <Route exact path="/" component={LoginPage}></Route>
                     <Route path="/payment" component={Payment}></Route>
                     <Route path="/registration" component={Registration}></Route>
                     <Route path="/store" component={Product}></Route>
