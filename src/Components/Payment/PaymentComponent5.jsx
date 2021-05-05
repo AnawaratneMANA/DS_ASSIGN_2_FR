@@ -11,7 +11,7 @@ const Payment = props =>(
         <td>{props.displayCreditCardDetails.creditCardUser}</td>
         <td>{props.displayCreditCardDetails.amount}</td>
         <td>{props.displayCreditCardDetails.cvc_Number}</td>
-        <td><Button size="sm" variant="primary" onClick={onEdit(props.displayCreditCardDetails.id)}>Edit</Button></td>
+        <td><Button size="sm" variant="primary" onClick={(props.displayCreditCardDetails.id)}>Edit</Button></td>
         {/* <td>
             <Link to={"/EditStudent/"+props.details._id}>edit</Link> | <a href="/DisplayStudent" onClick={() => {
             props.deleteStudent(props.student._id)}}>delete</a>
