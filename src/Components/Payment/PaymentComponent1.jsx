@@ -24,16 +24,12 @@ function PaymentComponent1() {
         e.preventDefault();
         console.log(creditCardData);
         //method to be added
-        axios.post("http://localhost:8073/addCreditCardDetails", creditCardData).then(() => {
-            console.log(creditCardData);
-        }).catch((err) => {
-            console.log(err);
-        })
-        //dispatch(addCreditCardPayment(creditCardData));
+        dispatch(addCreditCardPayment(creditCardData));
+        window.location = '/Payment';
     }
     return (
         
-        <div className="PaymentComponent1">
+        <div className="PaymentComponent5">
                 <h1>Credit Card Payment</h1>
                 <div className= "inside">
                 <Form className="form" onSubmit = {submit}>

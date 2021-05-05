@@ -1,6 +1,7 @@
 import React from 'react';
 import PaymentComponent1 from "./PaymentComponent1";
 import PaymentComponent2 from "./PaymentComponent2";
+import PaymentComponent6 from "./PaymentComponent6";
 import PaymentComponent5 from "./PaymentComponent5";
 import "./PaymentStyle.css";
 function Payment() {
@@ -13,7 +14,7 @@ function Payment() {
                     </div>
                     <div className="row">
                         <PaymentComponent5/>
-                        <PaymentComponent5/>
+                        <PaymentComponent6/>
                     </div>
                 </div>
             
