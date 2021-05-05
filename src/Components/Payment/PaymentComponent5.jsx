@@ -54,26 +54,24 @@ export class PaymentComponent5 extends Component {
     render() {
         return (
             <div className="PaymentComponent5">
-                <div className="elements">
                     <h1>Credit Card Table</h1>
                     <div className= "inside">
-                        <table className="table">
-                            <thead className= "thead-light">
-                            <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">userID</th>
-                                <th scope="col">CreditCardNumber</th>
-                                <th scope="col">CreditCardUser</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">CVC_Number</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                {this.paymentList()}
-                            </tbody>
-                        </table>
+                            <table className="table">
+                                <thead className= "thead-light">
+                                <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">userID</th>
+                                    <th scope="col">CreditCardNumber</th>
+                                    <th scope="col">CreditCardUser</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">CVC_Number</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {this.paymentList()}
+                                </tbody>
+                            </table>
                     </div>
-            </div>
             </div>
         )
     }

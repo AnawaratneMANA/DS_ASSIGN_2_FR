@@ -24,20 +24,16 @@ function PaymentComponent1() {
         e.preventDefault();
         console.log(creditCardData);
         //method to be added
-        axios.post("http://localhost:8073/addCreditCardDetails", creditCardData).then(() => {
-            console.log(creditCardData);
-        }).catch((err) => {
-            console.log(err);
-        })
-        //dispatch(addCreditCardPayment(creditCardData));
+        dispatch(addCreditCardPayment(creditCardData));
+        window.location = '/Payment';
     }
     return (
         
-        <div className="PaymentComponent1">
-            <div className="elements">
+        <div className="PaymentComponent5">
                 <h1>Credit Card Payment</h1>
                 <div className= "inside">
                 <Form className="form" onSubmit = {submit}>
+
                     <Form.Group controlId="formBasicEmail" className="formelements">
                         <Form.Label>Credit Card Number</Form.Label>
                         <Form.Control type="text" placeholder="Enter the credit card number" 
@@ -63,11 +59,12 @@ function PaymentComponent1() {
                         value = {creditCardData.amount}
                         onChange={(e) => setCreditCardData({...creditCardData, amount: e.target.value})}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit" className="formelements">
-                        Submit
-                    </Button>
+                    <Form.Group controlId="Amount " className="formelements">
+                        <Button variant="primary" type="submit" >
+                            Submit
+                        </Button>
+                    </Form.Group>
                 </Form>
-                </div>
                 </div>
         </div>
     )
