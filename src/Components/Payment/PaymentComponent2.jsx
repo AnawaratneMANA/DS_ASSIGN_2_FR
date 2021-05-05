@@ -9,9 +9,9 @@ function PaymentComponent2() {
     const [mobileData, setmobileData] = useState(
         {
             userId : "F125",
-            Phone_Number : " ",
-            Amount : 0,
-            Pin_Number : 0
+            phone_Number : " ",
+            amounts : 0,
+            pin_Number : 0
         }
     )
 
@@ -20,31 +20,32 @@ function PaymentComponent2() {
         console.log(mobileData);
         //method to be added
         dispatch(addMobilePayment(mobileData));
+        window.location = '/Payment';
     }
 
     return (
-        <div className="PaymentComponent2">
+        <div className="PaymentComponent5">
                 <h1>Mobile Phone Service</h1>
                 <div className= "inside">
                     <Form className="form" onSubmit = {submit}>
                             <Form.Group controlId="mobilePhone" className="formelements">
                                 <Form.Label>Mobile Phone Number</Form.Label>
                                 <Form.Control type="text" placeholder="Enter the mobile Phone Number"
-                                value = {mobileData.Phone_Number}
-                                onChange={(e) => setmobileData({...mobileData, Phone_Number: e.target.value})}/>
+                                value = {mobileData.phone_Number}
+                                onChange={(e) => setmobileData({...mobileData, phone_Number: e.target.value})}/>
                             </Form.Group>
 
                             <Form.Group controlId="PinNum" className="formelements">
-                                <Form.Label>Credit Card Owner</Form.Label>
+                                <Form.Label>Pin Number</Form.Label>
                                 <Form.Control type="text" placeholder="Enter the PIN number"
-                                value = {mobileData.Pin_Number}
-                                onChange={(e) => setmobileData({...mobileData, Pin_Number: e.target.value})}/>
+                                value = {mobileData.pin_Number}
+                                onChange={(e) => setmobileData({...mobileData, pin_Number: e.target.value})}/>
                             </Form.Group>
                             <Form.Group controlId="Amount " className="formelements">
                                 <Form.Label>Amount</Form.Label>
                                 <Form.Control type="text" placeholder="Amount"
-                                value = {mobileData.Amount}
-                                onChange={(e) => setmobileData({...mobileData, Amount: e.target.value})}/>
+                                value = {mobileData.amounts}
+                                onChange={(e) => setmobileData({...mobileData, amounts: e.target.value})}/>
                             </Form.Group>
                         <Form.Group controlId="Amount " className="formelements">
                             <Button variant="primary" type="submit" >
