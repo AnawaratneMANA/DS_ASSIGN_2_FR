@@ -8,6 +8,7 @@ export const createUser = (user) =>  axios.post(url + "user", user);
 //Item API Calling Methods.
 export const getItems = () => axios.get(url + "item");
 export const createItem = (item) =>  axios.post(url + "item", item);
+export const updateItem = (item) => axios.put();
 
 
 
