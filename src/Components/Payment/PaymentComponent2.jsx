@@ -24,36 +24,39 @@ function PaymentComponent2() {
 
     return (
         <div className="PaymentComponent2">
-            <div className="elements">
-                <h1>Mobile Phone - Customer Service</h1>
+                <h1>Mobile Phone Service</h1>
                 <div className= "inside">
                     <Form className="form" onSubmit = {submit}>
-                        <Form.Group controlId="mobilePhone" className="formelements">
-                            <Form.Label>Mobile Phone Number</Form.Label>
-                            <Form.Control type="text" placeholder="Enter the mobile Phone Number"
-                            value = {mobileData.Phone_Number}
-                            onChange={(e) => setmobileData({...mobileData, Phone_Number: e.target.value})}/>
-                        </Form.Group>
+                            <Form.Group controlId="mobilePhone" className="formelements">
+                                <Form.Label>Mobile Phone Number</Form.Label>
+                                <Form.Control type="text" placeholder="Enter the mobile Phone Number"
+                                value = {mobileData.Phone_Number}
+                                onChange={(e) => setmobileData({...mobileData, Phone_Number: e.target.value})}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="PinNum" className="formelements">
-                            <Form.Label>Credit Card Owner</Form.Label>
-                            <Form.Control type="text" placeholder="Enter the PIN number"
-                            value = {mobileData.Pin_Number}
-                            onChange={(e) => setmobileData({...mobileData, Pin_Number: e.target.value})}/>
-                        </Form.Group>
+                            <Form.Group controlId="PinNum" className="formelements">
+                                <Form.Label>Credit Card Owner</Form.Label>
+                                <Form.Control type="text" placeholder="Enter the PIN number"
+                                value = {mobileData.Pin_Number}
+                                onChange={(e) => setmobileData({...mobileData, Pin_Number: e.target.value})}/>
+                            </Form.Group>
+                            <Form.Group controlId="Amount " className="formelements">
+                                <Form.Label>Amount</Form.Label>
+                                <Form.Control type="text" placeholder="Amount"
+                                value = {mobileData.Amount}
+                                onChange={(e) => setmobileData({...mobileData, Amount: e.target.value})}/>
+                            </Form.Group>
                         <Form.Group controlId="Amount " className="formelements">
-                            <Form.Label>Amount</Form.Label>
-                            <Form.Control type="text" placeholder="Amount"
-                            value = {mobileData.Amount}
-                            onChange={(e) => setmobileData({...mobileData, Amount: e.target.value})}/>
+                            <Button variant="primary" type="submit" >
+                                Submit
+                            </Button>
                         </Form.Group>
-                        <Button variant="primary" type="submit" className="formelements">
-                            Submit
-                        </Button>
+                        <Form.Group type="text" className="formelements">
+
+                        </Form.Group>
                     </Form>
                 </div>
             </div>
-        </div>
     )
 }
 
