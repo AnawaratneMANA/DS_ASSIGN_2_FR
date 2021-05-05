@@ -1,8 +1,19 @@
-import React, { useState, useEffects, useDispatch } from 'react'
-import { Avatar, Button, FormControlLabel, Grid, TextField, Typography, Paper, Checkbox } from "@material-ui/core";
+import React, { useState, useEffects } from 'react'
+import { useDispatch } from 'react-redux'
+import {
+    Avatar,
+    Button,
+    FormControlLabel,
+    Grid,
+    TextField,
+    Typography,
+    Paper,
+    Checkbox,
+    FormControl, FormLabel, RadioGroup, Radio
+} from "@material-ui/core";
 import makeStyles from "./styles";
 import { createUser } from '../../../actions/user'
-import {CheckBox} from "@material-ui/icons";
+import { CheckBox } from "@material-ui/icons";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 const Registration = () => {
 
@@ -62,11 +73,29 @@ const Registration = () => {
                     required
                     fullWidth
                     id="email"
-                    label="Email Address"
+                    label="User Name"
                     name="email"
                     autoComplete="email"
                     autoFocus
+                    type='text'
+                    value={userData.userName}
+                    onChange={(e) => setUserData({ ...userData, userName: e.target.value })}
                 />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="password"
+                    label="Email"
+                    name="password"
+                    type="email"
+                    autoComplete="current-password"
+                    autoFocus
+                    value={userData.email}
+                    onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+                />
+
                 <TextField
                     variant="outlined"
                     margin="normal"
@@ -75,15 +104,42 @@ const Registration = () => {
                     id="password"
                     label="Password"
                     name="password"
+                    type="Text"
+                    autoComplete="current-password"
+                    autoFocus
+                    value={userData.passWord1}
+                    onChange={(e) => setUserData({ ...userData, passWord1: e.target.value })}
+                />
+
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="password"
+                    label="Re-Password"
+                    name="password"
                     type="password"
                     autoComplete="current-password"
                     autoFocus
+                    value={userData.passWord2}
+                    onChange={(e) => setUserData({ ...userData, passWord2: e.target.value })}
                 />
+                {/*value={value} onChange={handleChange}*/}
+                <FormControl component="fieldset">
+                    <FormLabel component="legend">Gender</FormLabel>
+                    <RadioGroup aria-label="gender" name="gender1" onChange={(e) => setUserData({ ...userData, userType: e.target.value })} >
+                        <FormControlLabel value="female" control={<Radio />} label="Female" />
+                        <FormControlLabel value="male" control={<Radio />} label="Male" />
+                    </RadioGroup>
+                </FormControl>
 
-                <FormControlLabel
-                    control={<CheckBox value="remember" color="primary" />}
-                    label={"Remember Me"}
-                />
+                <FormControl component="fieldset">
+                    <FormControlLabel
+                        control={<CheckBox value="remember" color="primary" />}
+                        label={"Remember Me"}
+                    />
+                </FormControl>
 
                 <Button
                     type="submit"
@@ -103,9 +159,6 @@ const Registration = () => {
                     </Grid>
                 </Grid>
             </form>
-
-
-
         </div>
     )
 }

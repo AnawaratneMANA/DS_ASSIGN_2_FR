@@ -9,9 +9,10 @@ function Payment() {
                 <div className="container">
                     <div className="row">
                         <PaymentComponent1/>
-                        <PaymentComponent1/>
+                        <PaymentComponent2/>
                     </div>
                     <div className="row">
+                        <PaymentComponent5/>
                         <PaymentComponent5/>
                     </div>
                 </div>

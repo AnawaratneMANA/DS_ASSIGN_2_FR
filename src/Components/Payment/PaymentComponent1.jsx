@@ -34,10 +34,10 @@ function PaymentComponent1() {
     return (
         
         <div className="PaymentComponent1">
-            <div className="elements">
                 <h1>Credit Card Payment</h1>
                 <div className= "inside">
                 <Form className="form" onSubmit = {submit}>
+
                     <Form.Group controlId="formBasicEmail" className="formelements">
                         <Form.Label>Credit Card Number</Form.Label>
                         <Form.Control type="text" placeholder="Enter the credit card number" 
@@ -63,11 +63,12 @@ function PaymentComponent1() {
                         value = {creditCardData.amount}
                         onChange={(e) => setCreditCardData({...creditCardData, amount: e.target.value})}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit" className="formelements">
-                        Submit
-                    </Button>
+                    <Form.Group controlId="Amount " className="formelements">
+                        <Button variant="primary" type="submit" >
+                            Submit
+                        </Button>
+                    </Form.Group>
                 </Form>
-                </div>
                 </div>
         </div>
     )
