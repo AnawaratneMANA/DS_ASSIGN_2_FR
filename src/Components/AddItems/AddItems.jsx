@@ -57,17 +57,20 @@ function AddItems() {
 
                 <div className="form-group">
                     <label for="img">Item image</label>
+
+                </div>
+                <div>
                     <input type="file" className="form-control-file" id="img" value={itemData.image} onChange={(e) => setItemData({...itemData, image: e.target.value})}/>
                 </div>
 
                 <br />
 
                 <div className="text-right">
-                        <button type = 'submit' className="btn btn-primary">Add</button>      
+                        <button type='submit' className='button_add'>Add</button>
                 </div>
                 <div className="text-right">
                 <Link to="/itemlist">
-                    <button type = 'button' className="btn btn-primary">List</button>
+                    <button type = 'button' className='button_list'>List</button>
                 </Link>
                 </div>
             </form>
