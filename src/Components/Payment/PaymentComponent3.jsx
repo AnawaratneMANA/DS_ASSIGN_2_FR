@@ -7,12 +7,13 @@ import {Container, Paper} from '@material-ui/core';
 import axios from "axios";
 
 
-function PaymentComponent1() {
+function PaymentComponent3(props) {
     const dispatch = useDispatch();
 
     const [creditCardData, setCreditCardData] = useState(
         {
-            userId : "F125",
+            id: props.match.params.id,
+            userId : "",
             creditCardNumber : " ",
             creditCardUser : " ",
             amount : 0,
@@ -69,4 +70,4 @@ function PaymentComponent1() {
     )
 }
 
-export default PaymentComponent1;
+export default PaymentComponent3;
