@@ -4,6 +4,7 @@ import makeStyles from "./style";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {CheckBox} from "@material-ui/icons";
 import Auth from "../../../Validations/AuthenticationClass";
+import {Link} from "react-router-dom";
 const Login = ({lg}) => {
 
 
@@ -71,6 +72,12 @@ const Login = ({lg}) => {
                     <Grid item>
                         Register
                     </Grid>
+                    <Link to="/test"> TEST </Link>
+                    <Button onClick = {() => {
+                        Auth.logout(() => {
+                            lg.history.push("/");
+                        })
+                    }} > Log out </Button>
                 </Grid>
             </form>
         </div>
