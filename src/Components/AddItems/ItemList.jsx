@@ -53,6 +53,13 @@ const ItemList = ({userId}) => {
                            }
                        </tbody>
                        </table>
+                   <button onClick={() => {
+                       Auth.logout(()=>{
+                           props.history.push("/")
+                       })
+                   }}>
+
+                   </button>
                    </div> 
             </div>
         );

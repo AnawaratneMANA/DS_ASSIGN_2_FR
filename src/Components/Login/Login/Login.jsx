@@ -3,7 +3,14 @@ import {Avatar, Button, FormControlLabel, Grid, TextField, Typography} from "@ma
 import makeStyles from "./style";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {CheckBox} from "@material-ui/icons";
-const Login = () => {
+import Auth from "../../../Validations/AuthenticationClass";
+const Login = ({lg}) => {
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
     const classes = makeStyles();
     return(
         <div className={classes.paper}>
@@ -13,7 +20,7 @@ const Login = () => {
             <Typography component= "h1" variant= "h5">
                 Sign In Form
             </Typography>
-            <form className={classes.form} noValidate>
+            <form className={classes.form} noValidate onSubmit={handleSubmit}>
                 <TextField
                     variant="outlined"
                     margin="normal"
@@ -48,6 +55,11 @@ const Login = () => {
                     fullWidth
                     variant = "contained"
                     color = "primary"
+                    onClick = {() => {
+                        Auth.login(() => {
+                            lg.history.push("/test");
+                        })
+                    }}
                     className={classes.submit}
                 >
                     Sign In
