@@ -35,6 +35,8 @@ function AddItems() {
 
     return (<React.Fragment>
          <div className="form-container">
+             {/*Add the search input here. Following Line make spaces from top*/}
+             <div className={"toolbar"}/>
             <form onSubmit={handleSubmit}>
                 <h1 className="mb-5">Add Item</h1>
                 <div className="form-group">

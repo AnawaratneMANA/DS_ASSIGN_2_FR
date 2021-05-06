@@ -46,7 +46,9 @@ const ItemList = ({userId}) => {
                                    <tr key = {item.id}>
                                        <td>{item.title}</td>
                                        <td>{item.price}</td>
-                                       <td>{item.description}</td>                    
+                                       <td>{item.description}</td>
+                                       <td><button type="button" class="btn btn-success">Edit</button></td>
+                                       <td><button type="button" class="btn btn-danger">Delete</button></td>
                                   </tr>
                                )
                            
