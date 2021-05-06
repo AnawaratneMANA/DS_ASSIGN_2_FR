@@ -10,6 +10,8 @@ import { getItems } from "./actions/item";
 import AddItems from './Components/AddItems/AddItems';
 import ItemList from './Components/AddItems/ItemList';
 import LoginPage from "./Components/Login/LoginPage";
+import PaymentComponent3 from "./Components/Payment/PaymentComponent3";
+
 import RegistrationPage from './Components/Registration/RegistrationPage'
 import {ProtectedRoute} from "./Validations/protectedRoute";
 import Test from "./Components/Testing/TestingComponent";
@@ -35,6 +37,7 @@ const App = () => {
                     <Route exact path="/registration" component={RegistrationPage}></Route>
                     <Route exact path="/" component={Product}></Route>
                     <Route exact path="/additem" component={AddItems}></Route>
+                    <Route exact path="/payment/update-payment1/:id" component={PaymentComponent3}></Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
 
                 </Switch>

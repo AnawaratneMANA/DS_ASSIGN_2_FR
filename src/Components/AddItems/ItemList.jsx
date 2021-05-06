@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { useSelector } from 'react-redux';
 import Auth from "../../Validations/AuthenticationClass";
-const ItemList = (props) => {
+
+
+const ItemList = ({userId}) => {
 
     // constructor(props){
     //     super(props)
@@ -15,7 +17,7 @@ const ItemList = (props) => {
 
     const items = useSelector((state) => state.items );
 
-    //Remove Later
+    //Remove Later 
     // componentDidMount(){
     //     axios.get("http://localhost:8073/displayCreditCardDetails/").then(response => {
     //         this.setState({details: response.data});
@@ -46,9 +48,7 @@ const ItemList = (props) => {
                                    <tr key = {item.id}>
                                        <td>{item.title}</td>
                                        <td>{item.price}</td>
-                                       <td>{item.description}</td>
-                                       <td><button type="button" class="btn btn-success">Edit</button></td>
-                                       <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                       <td>{item.description}</td>                    
                                   </tr>
                                )
                            
@@ -57,7 +57,7 @@ const ItemList = (props) => {
                        </table>
                    <button onClick={() => {
                        Auth.logout(()=>{
-                           props.history.push("/")
+                           //props.history.push("/")
                        })
                    }}>
 
