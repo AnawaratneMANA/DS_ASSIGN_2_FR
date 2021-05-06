@@ -33,7 +33,7 @@ const App = () => {
                 <Navbar />
                 <Switch>
                     <Route exact path="/login" component={LoginPage}></Route>
-                    <Route exact path="/payment" component={Payment}></Route>
+                    <ProtectedRoute exact path="/payment" component={Payment}></ProtectedRoute>
                     <Route exact path="/registration" component={RegistrationPage}></Route>
                     <Route exact path="/" component={Product}></Route>
                     <Route exact path="/additem" component={AddItems}></Route>

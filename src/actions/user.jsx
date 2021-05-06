@@ -8,5 +8,14 @@ export const createUser = (user) => async (dispatch) => {
     } catch (error){
         console.log(error);
     }
-    //Get return value.
+}
+
+export const loginUserValidation = (user) => async (dispatch) => {
+    try{
+        //Call a different method to validate users.
+        const { data } = await api.createUser(user);
+        //Get the return value. (Payload data = return value from the API.
+    } catch (error){
+        console.log(error);
+    }
 }

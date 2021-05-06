@@ -17,7 +17,6 @@ const Navbar = () => {
                         Store
                     </Link>
                 </Typography>
-
                 <div className={classes.grow}>
                     <Typography variant="body1">
                         <Link to='/additem' className={classes.title}>
@@ -46,7 +45,6 @@ const Navbar = () => {
                         </Link>
                     </Typography>
                 </div>
-
                 <div className={classes.grow}>
                     <Typography variant="body1">
                         <Link to='/about' className={classes.title}>
