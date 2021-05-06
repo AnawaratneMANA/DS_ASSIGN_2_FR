@@ -12,7 +12,7 @@ const Payment = props =>(
         <td>{props.displayCreditCardDetails.amount}</td>
         <td>{props.displayCreditCardDetails.cvc_Number}</td>
         <td>
-            <Link to={"/update-payment1/"+props.displayCreditCardDetails.id}>edit</Link> |
+            <Link to={"/payment/update-payment1/"+props.displayCreditCardDetails.id}>edit</Link> |
             <a href="/payment" onClick={() => {
                                     props.deleteValues(props.displayCreditCardDetails.id)
                                 }}>delete</a>

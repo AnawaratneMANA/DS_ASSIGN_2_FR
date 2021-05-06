@@ -37,7 +37,7 @@ const App = () => {
                     <Route exact path="/registration" component={RegistrationPage}></Route>
                     <Route exact path="/" component={Product}></Route>
                     <Route exact path="/additem" component={AddItems}></Route>
-                    <Route exact path="/update-payment1/:id" component={PaymentComponent3}></Route>
+                    <Route exact path="/payment/update-payment1/:id" component={PaymentComponent3}></Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
 
                 </Switch>
