@@ -3,7 +3,7 @@ import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography} from "@
 import { ShoppingCart } from '@material-ui/icons';
 import { Link } from 'react-router-dom'
 //Use as the Logo. (Temp)
-import ShopIcon from '../Icons/shop-icon.png';
+import ShopIcon from '../Store/Icons/shop-icon.png';
 import useStyles from './styles';
 
 const Navbar = () => {

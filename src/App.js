@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {BrowserRouter as Router, Switch, Link, Route, BrowserRouter} from 'react-router-dom';
 //Testing Import Removed before pushing to the Repository.
 import Product from "./Components/Store/Products/Products";
-import Navbar from "./Components/Store/Navigation/Navbar";
+import Navbar from "./Components/Navigation/Navbar";
 import Payment from "./Components/Payment/Payment";
 import { getItems } from "./actions/item";
 import AddItems from './Components/AddItems/AddItems';
