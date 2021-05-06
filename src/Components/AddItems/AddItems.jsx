@@ -24,7 +24,9 @@ function AddItems() {
     //Submit Details 
     const handleSubmit = (e) => {
         //Stop page from loading.
+        console.log(itemData);
         e.preventDefault();
+
         //submit data
         dispatch(createItem(itemData));
       
