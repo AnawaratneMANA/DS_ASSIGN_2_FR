@@ -11,7 +11,7 @@ const Navbar = () => {
     return (<React.Fragment>
         <AppBar position ="fixed" className={classes.appBar} style={{ background: '#2d2d2d'}}>
             <Toolbar>
-                <Typography variant= "body1" className={classes.title} color= "inherit">
+                <Typography variant= "h4" className={classes.title} color= "inherit">
                     <img src={ShopIcon} alt= "Store" height= "48px" className={classes.image}/>
                     <Link to="/store">
                         Store
