@@ -6,13 +6,16 @@ import thunk from 'redux-thunk'
 import App from './App';
 //Create Reducer and Link here.
 import reducers from './reducers'
+import {BrowserRouter} from "react-router-dom";
 
 //Redux Store.
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 render(
+    <BrowserRouter>
     <Provider store={store}>
         <App />
-    </Provider>,
+    </Provider>
+    </BrowserRouter>,
     document.getElementById('root')
 );
