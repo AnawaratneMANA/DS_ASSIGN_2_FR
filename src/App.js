@@ -1,17 +1,21 @@
 import './App.css';
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from "react-redux";
-import Registration from './Components/Registration/Registration'
-import {BrowserRouter as Router, Switch, Link, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Link, Route, BrowserRouter} from 'react-router-dom';
 //Testing Import Removed before pushing to the Repository.
 import Product from "./Components/Store/Products/Products";
 import Navbar from "./Components/Store/Navigation/Navbar";
 import Payment from "./Components/Payment/Payment";
-import { getItems} from "./actions/item";
+import { getItems } from "./actions/item";
 import AddItems from './Components/AddItems/AddItems';
 import ItemList from './Components/AddItems/ItemList';
 import LoginPage from "./Components/Login/LoginPage";
-const App = () =>   {
+import PaymentComponent3 from "./Components/Payment/PaymentComponent3";
+
+import RegistrationPage from './Components/Registration/RegistrationPage'
+import {ProtectedRoute} from "./Validations/protectedRoute";
+import Test from "./Components/Testing/TestingComponent";
+const App = () => {
     const dispatch = useDispatch();
     //Store Population Method.
     /**
@@ -21,29 +25,29 @@ const App = () =>   {
 
     useEffect(() => {
         dispatch(getItems());
-    },[dispatch])
+    }, [dispatch])
 
     return (
-        <div className = "" >
-            <Router>
-                <Navbar/>
+        <div className="">
+            <BrowserRouter>
+                <Navbar />
                 <Switch>
-                    <Route exact path="/" component={LoginPage}></Route>
-                    <Route path="/payment" component={Payment}></Route>
-                    <Route path="/registration" component={Registration}></Route>
-                    <Route path="/store" component={Product}></Route>
-                    <Route path="/additem" component={AddItems}></Route>
-                    <Route path="/itemlist" >
-                        <ItemList userId={12}/>
-                    </Route>
-                </Switch>
-            </Router>
+                    <Route exact path="/login" component={LoginPage}></Route>
+                    <Route exact path="/payment" component={Payment}></Route>
+                    <Route exact path="/registration" component={RegistrationPage}></Route>
+                    <Route exact path="/" component={Product}></Route>
+                    <Route exact path="/additem" component={AddItems}></Route>
+                    <Route exact path="/update-payment1/:id" component={PaymentComponent3}></Route>
+                    <ProtectedRoute exact path="/test" component={Test}/>
 
-             {/* <Login/> */}
+                </Switch>
+            </BrowserRouter>
+
+            {/* <Login/> */}
 
             {/* for checking purpose */}
             {/*<Payment/>*/}
-            
+
         </div>
     );
 }

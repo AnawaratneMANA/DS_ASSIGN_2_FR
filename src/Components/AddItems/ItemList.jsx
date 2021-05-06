@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { useSelector } from 'react-redux';
+import Auth from "../../Validations/AuthenticationClass";
+
 
 const ItemList = ({userId}) => {
 
@@ -53,6 +55,13 @@ const ItemList = ({userId}) => {
                            }
                        </tbody>
                        </table>
+                   <button onClick={() => {
+                       Auth.logout(()=>{
+                           //props.history.push("/")
+                       })
+                   }}>
+
+                   </button>
                    </div> 
             </div>
         );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {  Link } from 'react-router-dom';
 import axios from 'axios';
+import {Button} from "react-bootstrap";
 
 const Payment = props =>(
     <tr>
@@ -10,19 +11,20 @@ const Payment = props =>(
         <td>{props.displayCreditCardDetails.creditCardUser}</td>
         <td>{props.displayCreditCardDetails.amount}</td>
         <td>{props.displayCreditCardDetails.cvc_Number}</td>
-        {/* <td>
-            <Link to={"/EditStudent/"+props.details._id}>edit</Link> | <a href="/DisplayStudent" onClick={() => {
-            props.deleteStudent(props.student._id)}}>delete</a>
-        </td> */}
+        <td>
+            <Link to={"/update-payment1/"+props.displayCreditCardDetails.id}>edit</Link> |
+            <a href="/payment" onClick={() => {
+                                    props.deleteValues(props.displayCreditCardDetails.id)
+                                }}>delete</a>
+        </td>
     </tr>
 )
-
 
 export class PaymentComponent5 extends Component {
 
     constructor(props) {
         super(props);
-        //this.deleteStudent = this.deleteStudent.bind(this);
+        this.deleteValues = this.deleteValues.bind(this);
         this.state = {displayCreditCardDetails: []};
     }
     componentDidMount() {
@@ -36,44 +38,42 @@ export class PaymentComponent5 extends Component {
         })
     }
 
-    // deleteStudent(id) {
-    //     console.Login("i:" +id);
-    //     document.write("i:" +id)
-    //     axios.delete('http://localhost:8070/student/delete/'+id)
-    //         .then(res => console.Login(res.data));
-    //     this.setState({
-    //         student: this.state.student.filter(el => el._id !== id)
-    //     })
-    // }
+    deleteValues(id) {
+        console.log(id);
+        axios.delete('http://localhost:8073/deleteCreditCardDetail/'+id)
+            .then(res => console.log(res.data));
+        this.setState({
+            displayCreditCardDetails: this.state.displayCreditCardDetails.filter(el => el.id !== id)
+        })
+    }
 //
     paymentList(){
         return this.state.displayCreditCardDetails.map(currentdetails => {
-            return <Payment displayCreditCardDetails = {currentdetails} deleteDetails = {this.deleteDetails} key ={currentdetails._id}/>;
+            return <Payment displayCreditCardDetails = {currentdetails} deleteValues = {this.deleteValues} key ={currentdetails.id}/>;
         })
     }
     render() {
         return (
             <div className="PaymentComponent5">
-                <div className="elements">
                     <h1>Credit Card Table</h1>
                     <div className= "inside">
-                        <table className="table">
-                            <thead className= "thead-light">
-                            <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">userID</th>
-                                <th scope="col">CreditCardNumber</th>
-                                <th scope="col">CreditCardUser</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">CVC_Number</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                {this.paymentList()}
-                            </tbody>
-                        </table>
+                            <table className="table">
+                                <thead className= "thead-light">
+                                <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">userID</th>
+                                    <th scope="col">CreditCardNumber</th>
+                                    <th scope="col">CreditCardUser</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">CVC_Number</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {this.paymentList()}
+                                </tbody>
+                            </table>
                     </div>
-            </div>
             </div>
         )
     }
