@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {  Link } from 'react-router-dom';
 import axios from 'axios';
+import {Button} from "react-bootstrap";
 
 const Payment = props =>(
     <tr>
@@ -10,6 +11,7 @@ const Payment = props =>(
         <td>{props.displayCreditCardDetails.creditCardUser}</td>
         <td>{props.displayCreditCardDetails.amount}</td>
         <td>{props.displayCreditCardDetails.cvc_Number}</td>
+        <td><Button size="sm" variant="primary" onClick={(props.displayCreditCardDetails.id)}>Edit</Button></td>
         {/* <td>
             <Link to={"/EditStudent/"+props.details._id}>edit</Link> | <a href="/DisplayStudent" onClick={() => {
             props.deleteStudent(props.student._id)}}>delete</a>
@@ -35,7 +37,20 @@ export class PaymentComponent5 extends Component {
             console.log("error going 1");
         })
     }
-
+    onEdit(id){
+        axios.put('http://localhost:8073/updateCreditCardDetailsById/'+id)
+                .then(res => console.Login(res.data));
+            this.setState({
+                student: this.state.student.filter(el => el._id !== id)
+            })
+    }
+//     axios.post('http://localhost:8070/student/update/'+this.props.match.params.id, newStudent)
+//     .then(() => {
+//     alert("Student updated");
+//     window.location = '/DisplayStudent';
+// }).catch((err) => {
+//     console.log(err);
+// })
     // deleteStudent(id) {
     //     console.Login("i:" +id);
     //     document.write("i:" +id)
@@ -65,6 +80,7 @@ export class PaymentComponent5 extends Component {
                                     <th scope="col">CreditCardUser</th>
                                     <th scope="col">Amount</th>
                                     <th scope="col">CVC_Number</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>

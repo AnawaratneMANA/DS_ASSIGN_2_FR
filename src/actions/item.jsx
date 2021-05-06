@@ -24,12 +24,12 @@ export const createItem = (item) => async (dispatch) => {
 }
 
 //update item
-// export const updateItem = async(req, res) => {
-//     const {id: _id} = req.params;
-
-//     if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No item with that id');
-
-//     const updatedItem = 
+export const updateItem = async(req, res) => {
+    // const {id: _id} = req.params;
+    //
+    // if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No item with that id');
+    //
+    // const updatedItem =
   
   
-// }
+}
