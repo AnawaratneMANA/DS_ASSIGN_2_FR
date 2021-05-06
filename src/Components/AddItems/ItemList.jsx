@@ -26,6 +26,8 @@ const ItemList = ({userId}) => {
     //     })
     // }
 
+
+
         return (
             <div>
                <h2 className="text-center">Item List</h2>
@@ -48,7 +50,8 @@ const ItemList = ({userId}) => {
                                    <tr key = {item.id}>
                                        <td>{item.title}</td>
                                        <td>{item.price}</td>
-                                       <td>{item.description}</td>                    
+                                       <td>{item.description}</td>
+                                     
                                   </tr>
                                )
                            
