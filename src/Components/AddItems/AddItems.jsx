@@ -18,7 +18,7 @@ function AddItems() {
     );
 
     const clear = () =>{
-        //Clear the Form.
+
     }
 
     //Submit Details 
@@ -29,7 +29,7 @@ function AddItems() {
 
         //submit data
         dispatch(createItem(itemData));
-      
+        window.location = '/additem';
         clear(); 
     }
 
