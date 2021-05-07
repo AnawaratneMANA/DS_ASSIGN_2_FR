@@ -24,12 +24,11 @@ function AddItems() {
     //Submit Details 
     const handleSubmit = (e) => {
         //Stop page from loading.
-        console.log(itemData);
         e.preventDefault();
-
+        console.log(itemData);
         //submit data
         dispatch(createItem(itemData));
-        window.location = '/additem';
+        //window.location = '/additem';
         clear(); 
     }
 
@@ -72,7 +71,7 @@ function AddItems() {
                 </div>
                 <div className="text-right">
                 <Link to="/itemlist">
-                    <button type = 'button' className='button_list'>List</button>
+                    <button type = "button" className='button_list'>List</button>
                 </Link>
                 </div>
             </form>
