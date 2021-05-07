@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {BrowserRouter as Router, Switch, Link, Route, BrowserRouter} from 'react-router-dom';
 //Testing Import Removed before pushing to the Repository.
 import Product from "./Components/Store/Products/Products";
-import Navbar from "./Components/Store/Navigation/Navbar";
+import Navbar from "./Components/Navigation/Navbar";
 import Payment from "./Components/Payment/Payment";
 import { getItems } from "./actions/item";
 import AddItems from './Components/AddItems/AddItems';
@@ -33,11 +33,11 @@ const App = () => {
                 <Navbar />
                 <Switch>
                     <Route exact path="/login" component={LoginPage}></Route>
-                    <Route exact path="/payment" component={Payment}></Route>
+                    <ProtectedRoute exact path="/payment" component={Payment}></ProtectedRoute>
                     <Route exact path="/registration" component={RegistrationPage}></Route>
                     <Route exact path="/" component={Product}></Route>
                     <Route exact path="/additem" component={AddItems}></Route>
-                    <Route exact path="/update-payment1/:id" component={PaymentComponent3}></Route>
+                    <Route exact path="/payment/update-payment1/:id" component={PaymentComponent3}></Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
 
                 </Switch>

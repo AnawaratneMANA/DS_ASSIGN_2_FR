@@ -16,6 +16,8 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         display: 'flex',
         textDecoration: 'none',
+        fontWeight: "bold",
+        color: "white"
     },
     image: {
         marginRight: '10px',
@@ -64,6 +66,12 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             width: '20ch',
         },
+    link : {
+        flexGrow: 1,
+        textDecoration: 'none',
+        display: 'flex',
+        fontWeight: "bold",
+    }
 
     },
 
