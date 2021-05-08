@@ -54,6 +54,7 @@ const Navbar = () => {
                 </div>
                 <div className={classes.button}>
                     <IconButton>
+                        <Link to="/cart">
                         <Badge badgeContent={2} color="secondary">
                             <ShoppingCart style={{fill: "White"}}/>
                         </Badge>

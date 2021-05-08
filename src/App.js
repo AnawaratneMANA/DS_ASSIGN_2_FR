@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import { useDispatch } from "react-redux";
 import {BrowserRouter as Router, Switch, Link, Route, BrowserRouter} from 'react-router-dom';
 //Testing Import Removed before pushing to the Repository.
@@ -16,13 +16,27 @@ import RegistrationPage from './Components/Registration/RegistrationPage'
 import {ProtectedRoute} from "./Validations/protectedRoute";
 import Test from "./Components/Testing/TestingComponent";
 import UpdateItems from "./Components/AddItems/UpdateItems";
+import Cart from "./Components/Cart/Cart";
+import CartItem from "./Components/Cart/CartItem/CartItem";
 const App = () => {
     const dispatch = useDispatch();
+    var stringArray = [];
     //Store Population Method.
     /**
      *  Call `fetchProductItems` inside a useEffect hook.
      *  pass the JSON as a prop to Store component.
      */
+    const [cartItems, setCartItems] = useState([])
+    const [cartItem, setCartItem] = useState([
+        {
+
+        }
+    ])
+
+
+    const addToCart = (product, quantity) => {
+
+    }
 
     useEffect(() => {
         dispatch(getItems());
@@ -41,6 +55,9 @@ const App = () => {
                     <Route exact path="/itemlist" component={ItemList}></Route>
                     <Route exact path="/payment/update-payment1/:id" component={PaymentComponent3}></Route>
                     <Route exact path="/itemlist/update-item/:id" component={UpdateItems}></Route>
+                    <Route exact path="/cart">
+                        <Cart cart={cartItems}/>
+                    </Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
 
                 </Switch>
