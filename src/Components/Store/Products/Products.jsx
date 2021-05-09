@@ -19,7 +19,7 @@ const products = [
     { id: 3, name: "PC", description: "HP Elitebook 840", price: '320,000/=', image: 'https://www.notebookcheck.net/uploads/tx_nbc2/4zu3_HP_Elitebook_840_G5.jpg'}
 ]
 
-const Products = () => {
+const Products = ({addToCart}) => {
     //fetch items from the redux store.
     const items = useSelector((state) => state.items );
     //Here there is a bug in server response it not a JSON type object fix it and remove this.
@@ -57,7 +57,7 @@ const Products = () => {
                     }
                 }).map((myJsonString) => (
                     <Grid item key={myJsonString.id} xs={12} sm={6} md={4} lg={3}>
-                        <Product items={myJsonString}  />
+                        <Product items={myJsonString} addToCart={addToCart}  />
                     </Grid>
                 ))}
             </Grid>

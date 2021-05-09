@@ -24,12 +24,12 @@ function AddItems() {
     //Submit Details 
     const handleSubmit = (e) => {
         //Stop page from loading.
-        console.log(itemData);
         e.preventDefault();
-
+        console.log(itemData);
         //submit data
         dispatch(createItem(itemData));
-        window.location = '/additem';
+
+        //window.location = '/additem';
         clear(); 
     }
 
@@ -59,20 +59,17 @@ function AddItems() {
 
                 <div className="form-group">
                     <label for="img">Item image</label>
-
                 </div>
                 <div>
                     <input type="file" className="form-control-file" id="img" value={itemData.image} onChange={(e) => setItemData({...itemData, image: e.target.value})}/>
                 </div>
-
                 <br />
-
                 <div className="text-right">
                         <button type='submit' className='button_add'>Add</button>
                 </div>
                 <div className="text-right">
                 <Link to="/itemlist">
-                    <button type = 'button' className='button_list'>List</button>
+                    <button type = "button" className='button_list'>List</button>
                 </Link>
                 </div>
             </form>

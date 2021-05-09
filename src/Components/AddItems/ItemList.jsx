@@ -10,12 +10,11 @@ const Item = props =>(
         <td>{props.displayitem.title}</td>
         <td>{props.displayitem.price}</td>
         <td>{props.displayitem.description}</td>
-        <td>{props.displayitem.image}</td>
         <td>{props.displayitem.createdAt}</td>
         <td>{props.displayitem.updateAt}</td>
         <td>
             <Link to={"/itemlist/update-item/"+props.displayitem.id}>edit</Link> |
-            <a href="/itemlist" onClick={() => {
+            <a href="#" onClick={() => {
                                     props.deleteValues(props.displayitem.id)
                                 }}>delete</a>
         </td>
@@ -77,7 +76,6 @@ class ItemList extends Component {
                                 <th>Item Name</th>
                                 <th>Item Price</th>
                                 <th>Description</th>
-                                <th>Image</th>
                                 <th>Create At</th>
                                 <th>Update At</th>
                                 <th>Action</th>
