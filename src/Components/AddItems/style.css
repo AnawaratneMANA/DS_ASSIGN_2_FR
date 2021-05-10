@@ -8,10 +8,12 @@
     margin-top: 10%;
     margin-right: auto;
     margin-left: auto;
+
 }
 
-h1 {
+h2 {
     text-align: center;
+    font-weight: 700;
 }
 
 .row{
@@ -72,4 +74,13 @@ input[type="submit"]{
 .button_list:hover{
     border-color: #2691d9;
     transition: .5s;
+}
+
+.table_list{
+
+    background-color: white;
+}
+
+table{
+ background-color: white;
 }

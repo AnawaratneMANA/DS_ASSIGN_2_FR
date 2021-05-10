@@ -14,7 +14,10 @@ export const getItems = () => async (dispatch) => {
 //add item
 export const createItem = (item) => async (dispatch) => {
     try{
+        console.log(item);
+        console.log("After")
         const { data } = await api.createItem(item);
+        console.log(item);
         //Get the return value. (Paylaod data = return value from the API.)
         dispatch({type: 'CREATE', payload: data });
     } catch (error){
