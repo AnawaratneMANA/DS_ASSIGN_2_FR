@@ -11,13 +11,16 @@ import AddItems from './Components/AddItems/AddItems';
 import ItemList from './Components/AddItems/ItemList';
 import LoginPage from "./Components/Login/LoginPage";
 import PaymentComponent3 from "./Components/Payment/PaymentComponent3";
+import PaymentComponent4 from "./Components/Payment/PaymentComponent4";
 
 import RegistrationPage from './Components/Registration/RegistrationPage'
 import {ProtectedRoute} from "./Validations/protectedRoute";
 import Test from "./Components/Testing/TestingComponent";
 import UpdateItems from "./Components/AddItems/UpdateItems";
 import Cart from "./Components/Cart/Cart";
-import CartItem from "./Components/Cart/CartItem/CartItem";
+// import CartItem from "./Components/Cart/CartItem/CartItem";
+import CartItem from "./Components/Cart/Cart";
+
 const App = () => {
     const dispatch = useDispatch();
     var stringArray = [];
@@ -54,6 +57,7 @@ const App = () => {
                     <Route exact path="/additem" component={AddItems}></Route>
                     <Route exact path="/itemlist" component={ItemList}></Route>
                     <Route exact path="/payment/update-payment1/:id" component={PaymentComponent3}></Route>
+                    <Route exact path="/payment/update-payment2/:id" component={PaymentComponent4}></Route>
                     <Route exact path="/itemlist/update-item/:id" component={UpdateItems}></Route>
                     <Route exact path="/cart">
                         <Cart cart={cartItems}/>

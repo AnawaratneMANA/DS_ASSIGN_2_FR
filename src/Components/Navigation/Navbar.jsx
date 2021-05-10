@@ -57,12 +57,14 @@ const Navbar = () => {
                         <Link to="/cart">
                         <Badge badgeContent={2} color="secondary">
                             <ShoppingCart style={{fill: "White"}}/>
+                        {/*</Badge>*/}
                         </Badge>
-                    </IconButton>
                     <IconButton>
                         <Badge color="secondary">
                             <AccountCircle style={{fill: "White"}}/>
                         </Badge>
+                    </IconButton>
+                        </Link>
                     </IconButton>
                 </div>
             </Toolbar>
