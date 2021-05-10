@@ -15,8 +15,6 @@ function Payment() {
                     </div>
                     <div className="row">
                         <PaymentComponent5/>
-                    </div>
-                    <div className="row">
                         <PaymentComponent6/>
                     </div>
                 </div>
