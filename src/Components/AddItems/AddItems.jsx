@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import ItemList from './ItemList';
 import { Link } from 'react-router-dom'
 import './style.css'
+import FileBase from 'react-file-base64';
 function AddItems() {
 
     const dispatch = useDispatch();
@@ -40,7 +41,7 @@ function AddItems() {
              {/*Add the search input here. Following Line make spaces from top*/}
              <div className={"toolbar"}/>
             <form onSubmit={handleSubmit}>
-                <h1 className="mb-5">Add Item</h1>
+                <h2 className="mb-5">Add Item</h2>
                 <div className="form-group">
                     <label for="name">Title</label>
                     <input id="name" type="text" className="form-control" name="name" placeholder="Enter title" value={itemData.title}
@@ -61,7 +62,12 @@ function AddItems() {
                     <label for="img">Item image</label>
                 </div>
                 <div>
-                    <input type="file" className="form-control-file" id="img" value={itemData.image} onChange={(e) => setItemData({...itemData, image: e.target.value})}/>
+                   {/*<input type="file" className="form-control-file" id="img" value={itemData.image} onChange={(e) => setItemData({...itemData, image: e.target.value})}/ >*/}
+                    <FileBase
+                        type="file"
+                        multiple={false}
+                        onDone={({base64}) => setItemData({...itemData, image: base64})}
+                    />
                 </div>
                 <br />
                 <div className="text-right">
