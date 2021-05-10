@@ -87,11 +87,6 @@ const Login = ({lg}) => {
                     fullWidth
                     variant = "contained"
                     color = "primary"
-                    onClick = {() => {
-                        Auth.login(() => {
-                            lg.history.push("/test");
-                        })
-                    }}
                     className={classes.submit}
                 >
                     Sign In
