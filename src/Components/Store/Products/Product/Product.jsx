@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, CardMedia, CardActions, Typography, IconButton, CardContent, Icon, Button} from "@material-ui/core";
 import { AddShoppingCart } from '@material-ui/icons';
 import useStyle from './style'
-const Product = ({items }) => {
+const Product = ({items, addToCart }) => {
     //Connect the style here.
     const classes = useStyle();
     //Testing
@@ -28,7 +28,7 @@ const Product = ({items }) => {
                        </CardContent>
 
                         <CardActions disableSpacing className={classes.cardActions}>
-                            <IconButton aria-label= "Add to Cart">
+                            <IconButton aria-label= "Add to Cart" onClick={addToCart(items, 1)}>
                                 <AddShoppingCart />
                             </IconButton>
                             <Button className={classes.buyNowButton} color={"secondary"}>

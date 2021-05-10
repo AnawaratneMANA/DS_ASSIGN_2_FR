@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import {  Link } from 'react-router-dom';
 import axios from 'axios';
+import {login_image} from "../../Components/Login/Login/Image/login_image.jpg";
+
 import {Button} from "react-bootstrap";
 
 const Payment = props =>(
     <tr>
-        <td>{props.displayCreditCardDetails.id}</td>
         <td>{props.displayCreditCardDetails.userId}</td>
         <td>{props.displayCreditCardDetails.creditCardNumber}</td>
         <td>{props.displayCreditCardDetails.creditCardUser}</td>
@@ -13,7 +14,7 @@ const Payment = props =>(
         <td>{props.displayCreditCardDetails.cvc_Number}</td>
         <td>
             <Link to={"/payment/update-payment1/"+props.displayCreditCardDetails.id}>edit</Link> |
-            <a href="/payment" onClick={() => {
+            <a href="#" onClick={() => {
                                     props.deleteValues(props.displayCreditCardDetails.id)
                                 }}>delete</a>
         </td>
@@ -55,12 +56,11 @@ export class PaymentComponent5 extends Component {
     render() {
         return (
             <div className="PaymentComponent5">
-                    <h1>Credit Card Table</h1>
+                    <h1 className="H1">Credit Card Table</h1>
                     <div className= "inside">
                             <table className="table">
                                 <thead className= "thead-light">
                                 <tr>
-                                    <th scope="col">id</th>
                                     <th scope="col">userID</th>
                                     <th scope="col">CreditCardNumber</th>
                                     <th scope="col">CreditCardUser</th>

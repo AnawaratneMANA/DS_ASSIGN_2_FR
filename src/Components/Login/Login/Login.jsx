@@ -1,28 +1,43 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import {Avatar, Button, FormControlLabel, Grid, TextField, Typography} from "@material-ui/core";
 import makeStyles from "./style";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import { useDispatch } from "react-redux";
 import {CheckBox} from "@material-ui/icons";
 import Auth from "../../../Validations/AuthenticationClass";
 import {Link} from "react-router-dom";
 import {loginUserValidation} from "../../../actions/user";
+import axios from 'axios';
 const Login = ({lg}) => {
+
+    const dispatch = useDispatch();
 
     const [loginUser, setLoginUser] = useState([{
         userName: '',
         password: '',
     }]);
 
+    const dataBaseCall  = (callback) =>  {
+            axios.post("http://localhost:8073/validate", loginUser)
+                .then(response => {
+                    let values = response.data;
+                    callback(values);
+                });
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(loginUser);
-        //const flag = loginUserValidation(loginUser);
-        const flag = '';
-        if (flag === true){
-            //Call the Login method.
-        } else {
-            //Call the alert method (Error Message).
-        }
+        dataBaseCall(function (value) {
+                console.log(value === "Valid User");
+                if (value === "Valid User") {
+                    Auth.login();
+                } else if (value === "Wrong Password") {
+                    Auth.logout();
+                } else if (value === "User Not Found") {
+                    Auth.logout();
+                }
+            }
+        )
     }
 
     const classes = makeStyles();
@@ -72,11 +87,6 @@ const Login = ({lg}) => {
                     fullWidth
                     variant = "contained"
                     color = "primary"
-                    onClick = {() => {
-                        Auth.login(() => {
-                            lg.history.push("/test");
-                        })
-                    }}
                     className={classes.submit}
                 >
                     Sign In

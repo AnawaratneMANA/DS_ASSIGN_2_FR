@@ -14,12 +14,12 @@ import SearchBar from 'material-ui-search-bar';
 
 const products = [
     //Dummy values.
-    { id: 1, name: "Macbook", description: "Apple M1 Macbook Air", price: '239,000/=', image: 'https://cdn.pocket-lint.com/r/s/970x/assets/images/152137-laptops-review-apple-macbook-pro-2020-review-image1-qy49zfkn53-jpg.webp'},
-    { id: 2, name: "Macbook", description: "Apple M1 Macbook Pro", price: '345,000/=', image: 'https://i.pcmag.com/imagery/reviews/05CbcW9cP4o0rqbCnVB2OFZ-1..1584707541.jpg'},
-    { id: 3, name: "PC", description: "HP Elitebook 840", price: '320,000/=', image: 'https://www.notebookcheck.net/uploads/tx_nbc2/4zu3_HP_Elitebook_840_G5.jpg'}
+    { id: 1, name: "DragonFly", description: "Apple M1 Macbook Air", price: '239,000/=', image: 'https://cdn.pocket-lint.com/r/s/970x/assets/images/152137-laptops-review-apple-macbook-pro-2020-review-image1-qy49zfkn53-jpg.webp'},
+    { id: 2, name: "Zenbook", description: "Apple M1 Macbook Pro", price: '345,000/=', image: 'https://i.pcmag.com/imagery/reviews/05CbcW9cP4o0rqbCnVB2OFZ-1..1584707541.jpg'},
+    { id: 3, name: "Latitude", description: "HP Elitebook 840", price: '320,000/=', image: 'https://www.notebookcheck.net/uploads/tx_nbc2/4zu3_HP_Elitebook_840_G5.jpg'}
 ]
 
-const Products = () => {
+const Products = ({addToCart}) => {
     //fetch items from the redux store.
     const items = useSelector((state) => state.items );
     //Here there is a bug in server response it not a JSON type object fix it and remove this.
@@ -49,7 +49,7 @@ const Products = () => {
             </Container>
             
             <Grid container justify= "center" spacing={4}>
-                {items.filter((val) => {
+                {products.filter((val) => {
                     if(searchTerm == ""){
                         return val
                     } else if(val.description.toLowerCase().includes(searchTerm.toLowerCase())){
@@ -57,7 +57,7 @@ const Products = () => {
                     }
                 }).map((myJsonString) => (
                     <Grid item key={myJsonString.id} xs={12} sm={6} md={4} lg={3}>
-                        <Product items={myJsonString}  />
+                        <Product items={myJsonString} addToCart={addToCart}  />
                     </Grid>
                 ))}
             </Grid>

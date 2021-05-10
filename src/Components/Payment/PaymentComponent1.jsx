@@ -15,8 +15,8 @@ function PaymentComponent1() {
             userId : "F125",
             creditCardNumber : " ",
             creditCardUser : " ",
-            amount : 0,
-            cvc_Number : 0
+            cvc_Number : 0,
+            amount : " "
         }
     )
 
@@ -30,7 +30,7 @@ function PaymentComponent1() {
     return (
         
         <div className="PaymentComponent5">
-                <h1>Credit Card Payment</h1>
+                <h1 className="H1">Credit Card Payment</h1>
                 <div className= "inside">
                 <Form className="form" onSubmit = {submit}>
 
@@ -53,11 +53,11 @@ function PaymentComponent1() {
                         value = {creditCardData.cvc_Number}
                         onChange={(e) => setCreditCardData({...creditCardData, cvc_Number: e.target.value})}/>
                     </Form.Group>
-                    <Form.Group controlId="Amount " className="formelements">
+                    <Form.Group controlId="formBasicEmail" className="formelements">
                         <Form.Label>Amount</Form.Label>
-                        <Form.Control type="text" placeholder="Amount" 
-                        value = {creditCardData.amount}
-                        onChange={(e) => setCreditCardData({...creditCardData, amount: e.target.value})}/>
+                        <Form.Control type="text" placeholder="Amount"
+                                      value = {creditCardData.amount}
+                                      onChange={(e) => setCreditCardData({...creditCardData, amount: e.target.value})}/>
                     </Form.Group>
                     <Form.Group controlId="Amount " className="formelements">
                         <Button variant="primary" type="submit" >

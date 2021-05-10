@@ -10,7 +10,7 @@ function PaymentComponent2() {
         {
             userId : "F125",
             phone_Number : " ",
-            amounts : 0,
+            amount : " ",
             pin_Number : 0
         }
     )
@@ -25,7 +25,7 @@ function PaymentComponent2() {
 
     return (
         <div className="PaymentComponent5">
-                <h1>Mobile Phone Service</h1>
+                <h1 className="H1">Mobile Phone Service</h1>
                 <div className= "inside">
                     <Form className="form" onSubmit = {submit}>
                             <Form.Group controlId="mobilePhone" className="formelements">
@@ -41,11 +41,11 @@ function PaymentComponent2() {
                                 value = {mobileData.pin_Number}
                                 onChange={(e) => setmobileData({...mobileData, pin_Number: e.target.value})}/>
                             </Form.Group>
-                            <Form.Group controlId="Amount " className="formelements">
+                            <Form.Group controlId="PinNum" className="formelements">
                                 <Form.Label>Amount</Form.Label>
                                 <Form.Control type="text" placeholder="Amount"
-                                value = {mobileData.amounts}
-                                onChange={(e) => setmobileData({...mobileData, amounts: e.target.value})}/>
+                                              value = {mobileData.amount}
+                                              onChange={(e) => setmobileData({...mobileData, amount: e.target.value})}/>
                             </Form.Group>
                         <Form.Group controlId="Amount " className="formelements">
                             <Button variant="primary" type="submit" >
