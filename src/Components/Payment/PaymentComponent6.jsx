@@ -8,11 +8,14 @@ const Payment = props =>(
         <td>{props.displayPhoneDetails.userId}</td>
         <td>{props.displayPhoneDetails.phone_Number}</td>
         <td>{props.displayPhoneDetails.pin_Number}</td>
-        <td>{props.displayPhoneDetails.amounts}</td>
-        {/* <td>
-            <Link to={"/EditStudent/"+props.details._id}>edit</Link> | <a href="/DisplayStudent" onClick={() => {
-            props.deleteStudent(props.student._id)}}>delete</a>
-        </td> */}
+        <td>{props.displayPhoneDetails.amount}</td>
+        <td>
+            <Link to={"/payment/update-payment2/"+props.displayPhoneDetails.id}>edit</Link> |
+            <a href="#" onClick={() => {
+                props.deleteValues(props.displayPhoneDetails.id)
+            }}>delete</a>
+
+        </td>
     </tr>
 )
 
@@ -21,7 +24,7 @@ export class PaymentComponent6 extends Component {
 
     constructor(props) {
         super(props);
-        //this.deleteStudent = this.deleteStudent.bind(this);
+        this.deleteValues = this.deleteValues.bind(this);
         this.state = {displayPhoneDetails: []};
     }
     componentDidMount() {
@@ -33,25 +36,24 @@ export class PaymentComponent6 extends Component {
         })
     }
 
-    // deleteStudent(id) {
-    //     console.Login("i:" +id);
-    //     document.write("i:" +id)
-    //     axios.delete('http://localhost:8070/student/delete/'+id)
-    //         .then(res => console.Login(res.data));
-    //     this.setState({
-    //         student: this.state.student.filter(el => el._id !== id)
-    //     })
-    // }
+    deleteValues(id) {
+        console.log(id);
+        axios.delete('http://localhost:8073/deletePhoneDetail/'+id)
+            .then(res => console.log(res.data));
+        this.setState({
+            displayPhoneDetails: this.state.displayPhoneDetails.filter(el => el.id !== id)
+        })
+    }
 //
     paymentList(){
         return this.state.displayPhoneDetails.map(currentdetails => {
-            return <Payment displayPhoneDetails = {currentdetails} deleteDetails = {this.deleteDetails} key ={currentdetails._id}/>;
+            return <Payment displayPhoneDetails = {currentdetails} deleteValues = {this.deleteValues} key ={currentdetails.id}/>;
         })
     }
     render() {
         return (
             <div className="PaymentComponent5">
-                <h1>Phone Card Table</h1>
+                <h1 className="H1">Phone Card Table</h1>
                 <div className= "inside">
                     <table className="table">
                         <thead className= "thead-light">
