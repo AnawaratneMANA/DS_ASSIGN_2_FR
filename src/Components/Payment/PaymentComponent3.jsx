@@ -9,7 +9,6 @@ export class PaymentComponent3 extends Component {
         super(props);
         this.state = {
             id: props.match.params.id,
-            userId : " ",
             creditCardNumber : " ",
             creditCardUser : " ",
             amount : " ",
@@ -54,7 +53,6 @@ export class PaymentComponent3 extends Component {
     submit = (e) => {
         e.preventDefault();
         let payment = {id: this.state.id,
-            userId : this.state.userId,
             creditCardNumber : this.state.creditCardNumber,
             creditCardUser : this.state.creditCardUser,
             amount : this.state.amount,

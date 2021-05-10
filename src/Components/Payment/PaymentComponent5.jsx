@@ -7,7 +7,6 @@ import {Button} from "react-bootstrap";
 
 const Payment = props =>(
     <tr>
-        <td>{props.displayCreditCardDetails.id}</td>
         <td>{props.displayCreditCardDetails.userId}</td>
         <td>{props.displayCreditCardDetails.creditCardNumber}</td>
         <td>{props.displayCreditCardDetails.creditCardUser}</td>
@@ -62,7 +61,6 @@ export class PaymentComponent5 extends Component {
                             <table className="table">
                                 <thead className= "thead-light">
                                 <tr>
-                                    <th scope="col">id</th>
                                     <th scope="col">userID</th>
                                     <th scope="col">CreditCardNumber</th>
                                     <th scope="col">CreditCardUser</th>

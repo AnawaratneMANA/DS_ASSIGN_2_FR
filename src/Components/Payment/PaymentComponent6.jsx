@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const Payment = props =>(
     <tr>
-        <td>{props.displayPhoneDetails.id}</td>
         <td>{props.displayPhoneDetails.userId}</td>
         <td>{props.displayPhoneDetails.phone_Number}</td>
         <td>{props.displayPhoneDetails.pin_Number}</td>
@@ -58,7 +57,6 @@ export class PaymentComponent6 extends Component {
                     <table className="table">
                         <thead className= "thead-light">
                         <tr>
-                            <th scope="col">id</th>
                             <th scope="col">userID</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">Pin Number</th>
