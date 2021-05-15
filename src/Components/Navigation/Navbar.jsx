@@ -21,14 +21,14 @@ const Navbar = () => {
                 <div className={classes.grow}>
                     <Typography variant="body1">
                         <Link to='/additem' className={classes.title}>
-                            Dashboard
+                            Dashboard.
                         </Link>
                     </Typography>
                 </div>
                 <div className={classes.grow}>
                     <Typography variant="body1">
                         <Link to='/payment' className={classes.title}>
-                            Payment
+                            Payment.
                         </Link>
                     </Typography>
                 </div>

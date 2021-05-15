@@ -28,7 +28,7 @@ const App = () => {
      *  Call `fetchProductItems` inside a useEffect hook.
      *  pass the JSON as a prop to Store component.
      */
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState([]);
     const [cartItem, setCartItem] = useState([]);
     //Array Testing.
     const cartitems = [
