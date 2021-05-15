@@ -8,6 +8,7 @@ import useStyles from './styles';
 
 const Navbar = () => {
     const classes = useStyles();
+    console.log(cartitems.length)
     return (<React.Fragment>
         <AppBar position="fixed" className={classes.appBar} style={{background: '#2d2d2d'}}>
             <Toolbar>
@@ -20,14 +21,14 @@ const Navbar = () => {
                 <div className={classes.grow}>
                     <Typography variant="body1">
                         <Link to='/additem' className={classes.title}>
-                            Dashboard
+                            Dashboard.
                         </Link>
                     </Typography>
                 </div>
                 <div className={classes.grow}>
                     <Typography variant="body1">
                         <Link to='/payment' className={classes.title}>
-                            Payment
+                            Payment.
                         </Link>
                     </Typography>
                 </div>
