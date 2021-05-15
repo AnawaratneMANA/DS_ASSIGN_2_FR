@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Avatar, Button, FormControlLabel, Grid, TextField, Typography} from "@material-ui/core";
 import makeStyles from "./style";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useDispatch } from "react-redux";
 import {CheckBox} from "@material-ui/icons";
 import Auth from "../../../Validations/AuthenticationClass";
@@ -36,12 +36,13 @@ const Login = ({lg}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let userId = "";
+        var userId = "";
         dataBaseCall(function (value) {
                 console.log(value === "Valid User");
                 if (value === "Valid User") {
                     //parameter pass to the login function.
                     getTheNameofTheValidateUser(function (value) {
+                        console.log(value);
                         console.log("testing id method");
                         userId = value; //Values is coming here.
                     })
