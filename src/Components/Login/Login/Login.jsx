@@ -81,7 +81,6 @@ const Login = ({lg}) => {
                     control={<CheckBox value = "remember" color = "primary"/>}
                     label={"Remember Me"}
                 />
-
                 <Button
                     type ="submit"
                     fullWidth

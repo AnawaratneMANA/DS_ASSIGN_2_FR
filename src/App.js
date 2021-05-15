@@ -39,10 +39,10 @@ const App = () => {
     ]
 
 
-
-
-    const addToCart = (product, quantity) => {
-
+    const addToCart = (item) => {
+        let cartitem = new ClassItemModel(item.id, item.title, item.price, item.description, item.image);
+        cartitems.push(cartitem);
+        console.log("Testing");
     }
 
     useEffect(() => {
