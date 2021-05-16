@@ -1,28 +1,61 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import {Avatar, Button, FormControlLabel, Grid, TextField, Typography} from "@material-ui/core";
 import makeStyles from "./style";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import { useDispatch } from "react-redux";
 import {CheckBox} from "@material-ui/icons";
 import Auth from "../../../Validations/AuthenticationClass";
 import {Link} from "react-router-dom";
 import {loginUserValidation} from "../../../actions/user";
+import axios from 'axios';
 const Login = ({lg}) => {
+
+    const dispatch = useDispatch();
 
     const [loginUser, setLoginUser] = useState([{
         userName: '',
         password: '',
     }]);
 
+    const dataBaseCall  = (callback) =>  {
+            axios.post("http://localhost:8073/validate", loginUser)
+                .then(response => {
+                    let values = response.data;
+                    callback(values);
+                });
+    }
+
+    //Creat another method to get the id of the user and pass to the login function.
+    const getTheNameofTheValidateUser  = (callback) =>  {
+        axios.post("http://localhost:8073/getValdatedUserId", loginUser)
+            .then(response => {
+                let values = response.data;
+                callback(values);
+            });
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(loginUser);
-        //const flag = loginUserValidation(loginUser);
-        const flag = '';
-        if (flag === true){
-            //Call the Login method.
-        } else {
-            //Call the alert method (Error Message).
-        }
+        let userId = "";
+        dataBaseCall(function (value) {
+                console.log(value === "Valid User");
+                if (value === "Valid User") {
+                    //parameter pass to the login function.
+                    getTheNameofTheValidateUser(function (value) {
+                        console.log("testing id method");
+                        userId = value; //Values is coming here.
+                    })
+                    //Pass the return value coming from the function.
+                    //Configure a set Time out method. Make delay so that userId can store the value
+                    console.log(userId);
+                    Auth.login();
+                } else if (value === "Wrong Password") {
+                    Auth.logout();
+                } else if (value === "User Not Found") {
+                    Auth.logout();
+                }
+            }
+        )
     }
 
     const classes = makeStyles();
@@ -66,17 +99,11 @@ const Login = ({lg}) => {
                     control={<CheckBox value = "remember" color = "primary"/>}
                     label={"Remember Me"}
                 />
-
                 <Button
                     type ="submit"
                     fullWidth
                     variant = "contained"
                     color = "primary"
-                    onClick = {() => {
-                        Auth.login(() => {
-                            lg.history.push("/test");
-                        })
-                    }}
                     className={classes.submit}
                 >
                     Sign In

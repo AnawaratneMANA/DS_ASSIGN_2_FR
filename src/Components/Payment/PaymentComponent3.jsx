@@ -2,7 +2,6 @@ import React, { Component, useState } from 'react'
 import "./PaymentStyle.css";
 import {useDispatch} from 'react-redux';
 import {Form, Button} from 'react-bootstrap';
-import { addCreditCardPayment } from "../../actions/creditcard";
 import axios from "axios";
 
 export class PaymentComponent3 extends Component {
@@ -10,18 +9,19 @@ export class PaymentComponent3 extends Component {
         super(props);
         this.state = {
             id: props.match.params.id,
-            userId : " ",
             creditCardNumber : " ",
             creditCardUser : " ",
+            amount : " ",
             cvc_Number : 0,
-            amount : 0
+
 
         }
         this.submit = this.submit.bind(this);
+        this.editAmounts = this.editAmounts.bind(this);
         this.editCreditCardNumber = this.editCreditCardNumber.bind(this);
         this.editCreditCardUser = this.editCreditCardUser.bind(this);
         this.editCVCNumber = this.editCVCNumber.bind(this);
-        this.editAmount = this.editAmount.bind(this);
+
     }
     componentDidMount(){
         axios.get("http://localhost:8073/getSingleCreditCardDetail/"+this.state.id)
@@ -29,8 +29,9 @@ export class PaymentComponent3 extends Component {
                 let values = response.data;
                 this.setState({creditCardNumber: values.creditCardNumber,
                     creditCardUser : values.creditCardUser,
+                    amount : values.amount,
                     cvc_Number : values.cvc_Number,
-                    amount : values.amount
+
                 });
 
             });
@@ -41,21 +42,22 @@ export class PaymentComponent3 extends Component {
     editCreditCardUser= (event) => {
         this.setState({creditCardUser: event.target.value});
     }
+    editAmounts= (event) => {
+        this.setState({amount: event.target.value});
+    }
     editCVCNumber= (event) => {
         this.setState({cvc_Number: event.target.value});
     }
-    editAmount= (event) => {
-        this.setState({amount: event.target.value});
-    }
+
 
     submit = (e) => {
         e.preventDefault();
         let payment = {id: this.state.id,
-            userId : this.state.userId,
             creditCardNumber : this.state.creditCardNumber,
             creditCardUser : this.state.creditCardUser,
-            cvc_Number : this.state.cvc_Number,
-            amount : this.state.amount
+            amount : this.state.amount,
+            cvc_Number : this.state.cvc_Number
+
             };
         console.log(payment);
         axios.put('http://localhost:8073/updateCreditCardDetailsById/'+this.props.match.params.id, payment).then(() => {
@@ -70,7 +72,7 @@ export class PaymentComponent3 extends Component {
     render() {
         return (
             <div className="PaymentComponent3">
-                <h1>Update Credit Card Payment</h1>
+                <h1 className="H1">Update Credit Card Payment</h1>
                 <div className= "inside">
                     <Form className="form" onSubmit = {this.submit}>
 
@@ -87,20 +89,20 @@ export class PaymentComponent3 extends Component {
                                           value = {this.state.creditCardUser}
                                           onChange={this.editCreditCardUser}/>
                         </Form.Group>
+
+                        <Form.Group controlId="formBasicEmail" className="formelements">
+                            <Form.Label>Credit Card Number</Form.Label>
+                            <Form.Control type="text" placeholder="Enter the credit card number"
+                                          value = {this.state.amount}
+                                          onChange={this.editAmounts}/>
+                        </Form.Group>
+
                         <Form.Group controlId="CVCNumber" className="formelements">
                             <Form.Label>CVC Number</Form.Label>
                             <Form.Control type="text" placeholder="Enter the CVC number"
                                           value = {this.state.cvc_Number}
                                           onChange={this.editCVCNumber}/>
                         </Form.Group>
-
-                        <Form.Group controlId="Amount" className="formelements">
-                            <Form.Label>Credit Card Amount</Form.Label>
-                            <Form.Control type="text" placeholder="Enter payment"
-                                          value = {this.state.amount}
-                                          onChange={this.state.editAmount}/>
-                        </Form.Group>
-
                         <Form.Group controlId="submit" className="formelements">
                             <Button variant="primary" type="submit" >
                                 Submit

@@ -8,15 +8,12 @@ class Auth {
         //API validation
         localStorage.setItem('flag', true);
         this.authenicated = true;
-        console.log("User Validated")
-
     }
 
     logout(cb) {
         //Clear the Flag upon pressing log
         localStorage.setItem('flag', false);
         this.authenticated = false;
-        console.log("User Removed")
     }
 
     isAuthenticated() {
