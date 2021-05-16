@@ -25,11 +25,29 @@ const Login = ({lg}) => {
                 });
     }
 
+    //Creat another method to get the id of the user and pass to the login function.
+    const getTheNameofTheValidateUser  = (callback) =>  {
+        axios.post("http://localhost:8073/getValdatedUserId", loginUser)
+            .then(response => {
+                let values = response.data;
+                callback(values);
+            });
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        let userId = "";
         dataBaseCall(function (value) {
                 console.log(value === "Valid User");
                 if (value === "Valid User") {
+                    //parameter pass to the login function.
+                    getTheNameofTheValidateUser(function (value) {
+                        console.log("testing id method");
+                        userId = value; //Values is coming here.
+                    })
+                    //Pass the return value coming from the function.
+                    //Configure a set Time out method. Make delay so that userId can store the value
+                    console.log(userId);
                     Auth.login();
                 } else if (value === "Wrong Password") {
                     Auth.logout();
@@ -81,7 +99,6 @@ const Login = ({lg}) => {
                     control={<CheckBox value = "remember" color = "primary"/>}
                     label={"Remember Me"}
                 />
-
                 <Button
                     type ="submit"
                     fullWidth

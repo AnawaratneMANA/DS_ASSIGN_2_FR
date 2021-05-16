@@ -49,7 +49,7 @@ const Products = ({addToCart}) => {
             </Container>
             
             <Grid container justify= "center" spacing={4}>
-                {products.filter((val) => {
+                {items.filter((val) => {
                     if(searchTerm == ""){
                         return val
                     } else if(val.description.toLowerCase().includes(searchTerm.toLowerCase())){
