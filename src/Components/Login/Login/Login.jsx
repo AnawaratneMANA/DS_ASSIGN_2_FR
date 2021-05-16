@@ -41,14 +41,21 @@ const Login = ({lg}) => {
                 console.log(value === "Valid User");
                 if (value === "Valid User") {
                     //parameter pass to the login function.
-                    getTheNameofTheValidateUser(function (value) {
-                        console.log("testing id method");
-                        userId = value; //Values is coming here.
-                    })
+                    //setTimeout(function (){
+                        getTheNameofTheValidateUser(function (value) {
+                                console.log(value);
+                                userId = value;
+                                console.log(userId);
+                                Auth.login(userId);
+                            //Values is coming here.
+                        })
+                    //}, 3000);
                     //Pass the return value coming from the function.
                     //Configure a set Time out method. Make delay so that userId can store the value
-                    console.log(userId);
-                    Auth.login();
+
+
+
+
                 } else if (value === "Wrong Password") {
                     Auth.logout();
                 } else if (value === "User Not Found") {
