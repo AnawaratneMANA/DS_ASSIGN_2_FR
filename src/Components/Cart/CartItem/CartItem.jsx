@@ -10,7 +10,7 @@ const CartItem = ({item}) => {
             <CardMedia image={item.image} alt={item.name} className={classes.media}/>
             <CardContent>
                 <Typography variant="h4">{item.name}</Typography>
-                <Typography variant="h5">{item.name}</Typography>
+                <Typography variant="h5">{item.discription}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <div className={classes.buttons}>
