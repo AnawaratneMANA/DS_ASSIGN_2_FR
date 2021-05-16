@@ -54,15 +54,17 @@ const Navbar = () => {
                 </div>
                 <div className={classes.button}>
                     <IconButton>
-                        <Badge badgeContent={2} color="secondary">
-                            <ShoppingCart style={{fill: "White"}}/>
-                        </Badge>
-                    </IconButton>
-                    <IconButton>
                         <Badge color="secondary">
                             <AccountCircle style={{fill: "White"}}/>
                         </Badge>
                     </IconButton>
+
+                    <IconButton>
+                        <Badge badgeContent={2} color="secondary">
+                            <ShoppingCart style={{fill: "White"}}/>
+                        </Badge>
+                    </IconButton>
+
                 </div>
             </Toolbar>
         </AppBar>
