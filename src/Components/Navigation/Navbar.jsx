@@ -8,7 +8,7 @@ import useStyles from './styles';
 
 const Navbar = () => {
     const classes = useStyles();
-    console.log(cartitems.length)
+    //console.log(cartitems.length)
     return (<React.Fragment>
         <AppBar position="fixed" className={classes.appBar} style={{background: '#2d2d2d'}}>
             <Toolbar>
