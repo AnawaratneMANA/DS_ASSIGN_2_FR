@@ -29,17 +29,12 @@ const App = () => {
      *  Call `fetchProductItems` inside a useEffect hook.
      *  pass the JSON as a prop to Store component.
      */
-    const [cartItems, setCartItems] = useState([]);
-    const [cartItem, setCartItem] = useState([]);
-    //Array Testing.
-    const cartitems = [
-        ]
+    let [cartItems, setCartItems] = useState([]);
 
 
     const addToCart = (item) => {
         let cartitem = new ClassItemModel(item.id, item.title, item.price, item.description, item.image);
-        cartitems.push(cartitem);
-        console.log("Testing");
+        setCartItems(cartitem);
     }
 
     const removeCartItem = () => {
@@ -58,7 +53,7 @@ const App = () => {
     return (
         <div className="">
             <BrowserRouter>
-                <Navbar cartitems={cartitems}/>
+                <Navbar listlength={cartItems.length}/>
                 <Switch>
                     <Route exact path="/login" component={LoginPage}></Route>
                     <ProtectedRoute exact path="/payment" component={Payment}></ProtectedRoute>
@@ -75,7 +70,7 @@ const App = () => {
                         <PaymentComponent1/>
                     </Route>
                     <Route exact path="/cart">
-                        <Cart cart={cartitems}/>
+                        <Cart cart={cartItems}/>
                     </Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
 
