@@ -7,9 +7,12 @@ import {Container, Paper} from '@material-ui/core';
 import axios from "axios";
 
 
-function PaymentComponent1() {
+function PaymentComponent1(props) {
     const dispatch = useDispatch();
 
+    const finalBillAmount = (App) => {
+
+    }
     const [creditCardData, setCreditCardData] = useState(
         {
             userId : "F125",

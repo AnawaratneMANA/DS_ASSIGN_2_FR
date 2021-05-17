@@ -7,6 +7,7 @@ import Product from "./Components/Store/Products/Products";
 import Navbar from "./Components/Navigation/Navbar";
 import Payment from "./Components/Payment/Payment";
 import { getItems } from "./actions/item";
+import PaymentComponent1 from "./Components/Payment/PaymentComponent1";
 import AddItems from './Components/AddItems/AddItems';
 import ItemList from './Components/AddItems/ItemList';
 import LoginPage from "./Components/Login/LoginPage";
@@ -62,11 +63,17 @@ const App = () => {
                     <Route exact path="/login" component={LoginPage}></Route>
                     <ProtectedRoute exact path="/payment" component={Payment}></ProtectedRoute>
                     <Route exact path="/registration" component={RegistrationPage}></Route>
-                    <Route exact path="/" component={Product}></Route>
-                    <Route exact path="/additem" component={AddItems}></Route>
+                    <Route exact path="/">
+                        <Product addToCart={addToCart}/>
+                    </Route>
+                    <ProtectedRoute exact path="/additem" component={AddItems}></ProtectedRoute>
+                    <Route exact path="/itemlist" component={ItemList}></Route>
                     <Route exact path="/itemlist" component={ItemList}></Route>
                     <Route exact path="/payment/update-payment1/:id" component={PaymentComponent3}></Route>
                     <Route exact path="/itemlist/update-item/:id" component={UpdateItems}></Route>
+                    <Route exact path="/paymentComponent1">
+                        <PaymentComponent1/>
+                    </Route>
                     <Route exact path="/cart">
                         <Cart cart={cartitems}/>
                     </Route>
