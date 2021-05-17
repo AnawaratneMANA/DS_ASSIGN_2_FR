@@ -7,15 +7,13 @@ import {Container, Paper} from '@material-ui/core';
 import axios from "axios";
 
 
-function PaymentComponent1(props) {
+function PaymentComponent1() {
     const dispatch = useDispatch();
-
-    const finalBillAmount = (App) => {
-
-    }
+    const user = localStorage.getItem('userid');
+    console.log(user);
     const [creditCardData, setCreditCardData] = useState(
         {
-            userId : "F125",
+            userId : user,
             creditCardNumber : " ",
             creditCardUser : " ",
             cvc_Number : 0,
@@ -28,7 +26,7 @@ function PaymentComponent1(props) {
         console.log(creditCardData);
         //method to be added
         dispatch(addCreditCardPayment(creditCardData));
-        window.location = '/Payment';
+        //window.location = '/Payment';
     }
     return (
         
