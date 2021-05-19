@@ -58,7 +58,7 @@ export class PaymentComponent4 extends Component {
     render() {
         return (
             <div className="PaymentComponent3">
-                <h1 className="H1">Update Mobile Payment Payment</h1>
+                <h2 className="H1">Update Mobile Payment Payment</h2>
                 <div className= "inside">
                     <Form className="form" onSubmit = {this.submit}>
 
