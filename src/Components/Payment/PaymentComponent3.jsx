@@ -4,6 +4,8 @@ import {useDispatch} from 'react-redux';
 import {Form, Button} from 'react-bootstrap';
 import axios from "axios";
 
+
+
 export class PaymentComponent3 extends Component {
     constructor(props) {
         super(props);
@@ -72,7 +74,7 @@ export class PaymentComponent3 extends Component {
     render() {
         return (
             <div className="PaymentComponent3">
-                <h1 className="H1">Update Credit Card Payment</h1>
+                <h2 className="H1">Update Credit Card Payment</h2>
                 <div className= "inside">
                     <Form className="form" onSubmit = {this.submit}>
 

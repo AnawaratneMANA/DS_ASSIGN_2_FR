@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {  Link } from 'react-router-dom';
 import axios from 'axios';
-import {login_image} from "../../Components/Login/Login/Image/login_image.jpg";
-
+import {Container} from "@material-ui/core";
 import {Button} from "react-bootstrap";
 
 const Payment = props =>(
@@ -13,10 +12,10 @@ const Payment = props =>(
         <td>{props.displayCreditCardDetails.amount}</td>
         <td>{props.displayCreditCardDetails.cvc_Number}</td>
         <td>
-            <Link to={"/payment/update-payment1/"+props.displayCreditCardDetails.id}>edit</Link> |
-            <a href="#" onClick={() => {
+            <Button to={"/payment/update-payment1/"+props.displayCreditCardDetails.id}>edit</Button> |
+            <Button onClick={() => {
                                     props.deleteValues(props.displayCreditCardDetails.id)
-                                }}>delete</a>
+            }}>delete</Button>
         </td>
     </tr>
 )
@@ -56,8 +55,9 @@ export class PaymentComponent5 extends Component {
     render() {
         return (
             <div className="PaymentComponent5">
-                    <h1 className="H1">Credit Card Table</h1>
+                    <h2 className="H1">Credit Card Table</h2>
                     <div className= "inside">
+
                             <table className="table">
                                 <thead className= "thead-light">
                                 <tr>
