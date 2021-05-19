@@ -25,13 +25,27 @@ function PaymentComponent1() {
         e.preventDefault();
         console.log(creditCardData);
         //method to be added
+        alert(`payment successful`);
+        const templateId = 'template_7my6c7z';
+        const serviceID = 'service_5zkxkh9';
+        sendFeedback(serviceID, templateId, { from_name: "team WE19", message: "payment is successful", to_name: "unknown@gmail.com" })
+
         dispatch(addCreditCardPayment(creditCardData));
         //window.location = '/Payment';
+    }
+    const sendFeedback = (serviceID, templateId, variables) => {
+        window.emailjs.send(
+            serviceID, templateId,
+            variables
+        ).then(res => {
+            alert(`Email sent sucessfully`);
+        })
+            .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
     }
     return (
         
         <div className="PaymentComponent5">
-                <h1 className="H1">Credit Card Payment</h1>
+                <h2 className="H1">Credit Card Payment</h2>
                 <div className= "inside">
                 <Form className="form" onSubmit = {submit}>
 
