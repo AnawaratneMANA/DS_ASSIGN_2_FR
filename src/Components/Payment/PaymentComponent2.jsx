@@ -20,9 +20,22 @@ function PaymentComponent2() {
         console.log(mobileData);
         //method to be added
         dispatch(addMobilePayment(mobileData));
+        alert(`payment successful`);
+        const templateId = 'template_7my6c7z';
+        const serviceID = 'service_5zkxkh9';
+        sendFeedback(serviceID, templateId, { from_name: "team WE19", message: "payment is successful", to_name: "unknown@gmail.com" })
+
         window.location = '/Payment';
     }
-
+    const sendFeedback = (serviceID, templateId, variables) => {
+        window.emailjs.send(
+            serviceID, templateId,
+            variables
+        ).then(res => {
+            alert(`Email sent sucessfully`);
+        })
+            .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
+    }
     return (
         <div className="PaymentComponent5">
                 <h1 className="H1">Mobile Phone Service</h1>
