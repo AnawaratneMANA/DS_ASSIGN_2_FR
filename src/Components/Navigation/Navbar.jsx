@@ -61,11 +61,12 @@ const Navbar = ({cartitems}) => {
                         {/*</Badge>*/}
                         </Badge>
                         </Link>
+                    </IconButton>
+
                     <IconButton>
                         <Badge color="secondary">
                             <AccountCircle style={{fill: "White"}}/>
                         </Badge>
-                    </IconButton>
                     </IconButton>
                 </div>
             </Toolbar>
