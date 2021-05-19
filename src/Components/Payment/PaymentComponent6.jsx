@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import {  Link } from 'react-router-dom';
 import axios from 'axios';
+import {Button} from "react-bootstrap";
+import {Container} from "@material-ui/core";
+
 
 const Payment = props =>(
     <tr>
@@ -9,10 +12,10 @@ const Payment = props =>(
         <td>{props.displayPhoneDetails.pin_Number}</td>
         <td>{props.displayPhoneDetails.amount}</td>
         <td>
-            <Link to={"/payment/update-payment2/"+props.displayPhoneDetails.id}>edit</Link> |
-            <a href="#" onClick={() => {
+            <Button to={"/payment/update-payment2/"+props.displayPhoneDetails.id}>edit</Button> |
+            <Button onClick={() => {
                 props.deleteValues(props.displayPhoneDetails.id)
-            }}>delete</a>
+            }}>delete</Button>
 
         </td>
     </tr>
@@ -52,7 +55,7 @@ export class PaymentComponent6 extends Component {
     render() {
         return (
             <div className="PaymentComponent5">
-                <h1 className="H1">Phone Card Table</h1>
+                <h2 className="H1">Phone Card Table</h2>
                 <div className= "inside">
                     <table className="table">
                         <thead className= "thead-light">

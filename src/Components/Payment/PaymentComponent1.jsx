@@ -45,7 +45,7 @@ function PaymentComponent1() {
     return (
         
         <div className="PaymentComponent5">
-                <h1 className="H1">Credit Card Payment</h1>
+                <h2 className="H1">Credit Card Payment</h2>
                 <div className= "inside">
                 <Form className="form" onSubmit = {submit}>
 
