@@ -4,9 +4,11 @@ class Auth {
         }
         //Need to check before cart checkout
 
-    login() {
+    login(id) {
         //API validation
+        console.log(id);
         localStorage.setItem('flag', true);
+        localStorage.setItem('userid', id);
         this.authenicated = true;
     }
 

@@ -7,7 +7,7 @@ import {CheckBox} from "@material-ui/icons";
 import Auth from "../../../Validations/AuthenticationClass";
 import {Link} from "react-router-dom";
 import {loginUserValidation} from "../../../actions/user";
-import axios from 'axios';
+import axios from "axios";
 const Login = ({lg}) => {
 
     const dispatch = useDispatch();
@@ -40,15 +40,12 @@ const Login = ({lg}) => {
         dataBaseCall(function (value) {
                 console.log(value === "Valid User");
                 if (value === "Valid User") {
-                    //parameter pass to the login function.
-                    getTheNameofTheValidateUser(function (value) {
-                        console.log("testing id method");
-                        userId = value; //Values is coming here.
-                    })
-                    //Pass the return value coming from the function.
-                    //Configure a set Time out method. Make delay so that userId can store the value
-                    console.log(userId);
-                    Auth.login();
+                        getTheNameofTheValidateUser(function (value) {
+                                console.log(value);
+                                userId = value;
+                                console.log(userId);
+                                Auth.login(userId);
+                        })
                 } else if (value === "Wrong Password") {
                     Auth.logout();
                 } else if (value === "User Not Found") {

@@ -3,6 +3,10 @@ import {  Link } from 'react-router-dom';
 import axios from 'axios';
 import {Button} from "react-bootstrap";
 import {Container} from "@material-ui/core";
+import DeleteIcon from '@material-ui/icons/Delete';
+import Icon from '@material-ui/core/Icon';
+//import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import login_image from "../../Components/Login/Login/Image/login_image.jpg";
 const Item = props =>(
     <tr>
@@ -13,6 +17,13 @@ const Item = props =>(
         <td>{props.displayitem.createdAt}</td>
         <td>{props.displayitem.updateAt}</td>
         <td>
+            {/*{<Button*/}
+            {/*    variant="contained"*/}
+            {/*    color="secondary"*/}
+            {/*    className=*/}
+            {/*    startIcon={<DeleteIcon />}>*/}
+            {/*    Delete*/}
+            {/*</Button>}*/}
             <Link to={"/itemlist/update-item/"+props.displayitem.id}>edit</Link> |
             <a href="#" onClick={() => {
                                     props.deleteValues(props.displayitem.id)

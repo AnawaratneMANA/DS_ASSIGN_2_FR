@@ -6,9 +6,9 @@ import {Link} from 'react-router-dom'
 import ShopIcon from '../Store/Icons/shop-icon.png';
 import useStyles from './styles';
 
-const Navbar = () => {
+const Navbar = ({cartitems}) => {
     const classes = useStyles();
-    console.log(cartitems.length)
+    //console.log(cartitems.length)
     return (<React.Fragment>
         <AppBar position="fixed" className={classes.appBar} style={{background: '#2d2d2d'}}>
             <Toolbar>
@@ -56,7 +56,7 @@ const Navbar = () => {
                 <div className={classes.button}>
                     <IconButton>
                         <Link to="/cart">
-                        <Badge badgeContent={2} color="secondary">
+                        <Badge badgeContent={() => cartitems.length} color="secondary">
                             <ShoppingCart style={{fill: "White"}}/>
                         {/*</Badge>*/}
                         </Badge>

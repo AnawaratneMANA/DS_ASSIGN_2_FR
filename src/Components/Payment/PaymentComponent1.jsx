@@ -9,10 +9,11 @@ import axios from "axios";
 
 function PaymentComponent1() {
     const dispatch = useDispatch();
-
+    const user = localStorage.getItem('userid');
+    console.log(user);
     const [creditCardData, setCreditCardData] = useState(
         {
-            userId : "F125",
+            userId : user,
             creditCardNumber : " ",
             creditCardUser : " ",
             cvc_Number : 0,
@@ -24,8 +25,22 @@ function PaymentComponent1() {
         e.preventDefault();
         console.log(creditCardData);
         //method to be added
+        alert(`payment successful`);
+        const templateId = 'template_7my6c7z';
+        const serviceID = 'service_5zkxkh9';
+        sendFeedback(serviceID, templateId, { from_name: "team WE19", message: "payment is successful", to_name: "unknown@gmail.com" })
+
         dispatch(addCreditCardPayment(creditCardData));
-        window.location = '/Payment';
+        //window.location = '/Payment';
+    }
+    const sendFeedback = (serviceID, templateId, variables) => {
+        window.emailjs.send(
+            serviceID, templateId,
+            variables
+        ).then(res => {
+            alert(`Email sent sucessfully`);
+        })
+            .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
     }
     return (
         
