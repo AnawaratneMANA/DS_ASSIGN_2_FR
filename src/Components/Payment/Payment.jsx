@@ -5,7 +5,7 @@ import PaymentComponent3 from "./PaymentComponent3";
 import PaymentComponent6 from "./PaymentComponent6";
 import PaymentComponent5 from "./PaymentComponent5";
 import "./PaymentStyle.css";
-function Payment() {
+function Payment(props) {
     return (<React.Fragment>
             <div className="Payment">
                 <div className="container">
