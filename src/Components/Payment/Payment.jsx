@@ -6,10 +6,13 @@ import PaymentComponent6 from "./PaymentComponent6";
 import PaymentComponent5 from "./PaymentComponent5";
 import "./PaymentStyle.css";
 function Payment(props) {
+
     return (<React.Fragment>
+
             <div className="Payment">
 
                 <div className="container">
+                    <center>
                     <div className="row">
                         <center>
                         <h1>User Full Payment : 90, 000</h1>
@@ -25,6 +28,7 @@ function Payment(props) {
                         <PaymentComponent2/>
                         <PaymentComponent6/>
                     </div>
+                    </center>
                 </div>
             
         </div>

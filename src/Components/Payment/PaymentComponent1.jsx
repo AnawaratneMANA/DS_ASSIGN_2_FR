@@ -10,7 +10,9 @@ import axios from "axios";
 function PaymentComponent1() {
     const dispatch = useDispatch();
     const user = localStorage.getItem('userid');
+    const email = localStorage.getItem('email');
     console.log(user);
+    console.log(email);
     const [creditCardData, setCreditCardData] = useState(
         {
             userId : user,
@@ -28,7 +30,7 @@ function PaymentComponent1() {
         alert(`payment successful`);
         const templateId = 'template_7my6c7z';
         const serviceID = 'service_5zkxkh9';
-        sendFeedback(serviceID, templateId, { from_name: "team WE19", message: "payment is successful", to_name: "unknown@gmail.com" })
+        sendFeedback(serviceID, templateId, { from_name: "team WE19", message: email, to_name: email })
 
         dispatch(addCreditCardPayment(creditCardData));
         //window.location = '/Payment';
