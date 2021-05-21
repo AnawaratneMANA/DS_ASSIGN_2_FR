@@ -21,6 +21,7 @@ const Login = ({lg}) => {
             axios.post("http://localhost:8073/validate", loginUser)
                 .then(response => {
                     let values = response.data;
+                    console.log(values);
                     callback(values);
                 });
     }
@@ -34,18 +35,33 @@ const Login = ({lg}) => {
             });
     }
 
+    const getTheEmailofTheValidateUser  = (callback) =>  {
+        axios.post("http://localhost:8073/getValdatedUseremail", loginUser)
+            .then(response => {
+                let values = response.data;
+                callback(values);
+            });
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let userId = "";
+        let email = "";
         dataBaseCall(function (value) {
                 console.log(value === "Valid User");
+            getTheEmailofTheValidateUser(function (value2){
+                email = value2;
+                console.log(email);
+            })
                 if (value === "Valid User") {
                         getTheNameofTheValidateUser(function (value) {
                                 console.log(value);
                                 userId = value;
                                 console.log(userId);
-                                Auth.login(userId);
+                                console.log(email);
+                                Auth.login(userId, email);
                         })
+
                 } else if (value === "Wrong Password") {
                     Auth.logout();
                 } else if (value === "User Not Found") {

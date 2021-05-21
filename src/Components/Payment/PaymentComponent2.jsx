@@ -38,7 +38,7 @@ function PaymentComponent2() {
     }
     return (
         <div className="PaymentComponent5">
-                <h1 className="H1">Mobile Phone Service</h1>
+                <h2 className="H1">Mobile Phone Service</h2>
                 <div className= "inside">
                     <Form className="form" onSubmit = {submit}>
                             <Form.Group controlId="mobilePhone" className="formelements">
