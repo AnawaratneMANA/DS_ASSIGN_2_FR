@@ -1,14 +1,74 @@
-import React from 'react'
+import React, {useState} from 'react';
 import {Avatar, Button, FormControlLabel, Grid, TextField, Typography} from "@material-ui/core";
 import makeStyles from "./style";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import { useDispatch } from "react-redux";
 import {CheckBox} from "@material-ui/icons";
 import Auth from "../../../Validations/AuthenticationClass";
+import {Link} from "react-router-dom";
+import {loginUserValidation} from "../../../actions/user";
+import axios from "axios";
 const Login = ({lg}) => {
 
+    const dispatch = useDispatch();
+
+    const [loginUser, setLoginUser] = useState([{
+        userName: '',
+        password: '',
+    }]);
+
+    const dataBaseCall  = (callback) =>  {
+            axios.post("http://localhost:8073/validate", loginUser)
+                .then(response => {
+                    let values = response.data;
+                    console.log(values);
+                    callback(values);
+                });
+    }
+
+    //Creat another method to get the id of the user and pass to the login function.
+    const getTheNameofTheValidateUser  = (callback) =>  {
+        axios.post("http://localhost:8073/getValdatedUserId", loginUser)
+            .then(response => {
+                let values = response.data;
+                callback(values);
+            });
+    }
+
+    const getTheEmailofTheValidateUser  = (callback) =>  {
+        axios.post("http://localhost:8073/getValdatedUseremail", loginUser)
+            .then(response => {
+                let values = response.data;
+                callback(values);
+            });
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        let userId = "";
+        let email = "";
+        dataBaseCall(function (value) {
+                console.log(value === "Valid User");
+            getTheEmailofTheValidateUser(function (value2){
+                email = value2;
+                console.log(email);
+            })
+                if (value === "Valid User") {
+                        getTheNameofTheValidateUser(function (value) {
+                                console.log(value);
+                                userId = value;
+                                console.log(userId);
+                                console.log(email);
+                                Auth.login(userId, email);
+                        })
+
+                } else if (value === "Wrong Password") {
+                    Auth.logout();
+                } else if (value === "User Not Found") {
+                    Auth.logout();
+                }
+            }
+        )
     }
 
     const classes = makeStyles();
@@ -31,6 +91,8 @@ const Login = ({lg}) => {
                     name="email"
                     autoComplete="email"
                     autoFocus
+                    onChange={(e) => setLoginUser({ ...loginUser, userName: e.target.value })}
+
                 />
                 <TextField
                     variant="outlined"
@@ -43,23 +105,18 @@ const Login = ({lg}) => {
                     type = "password"
                     autoComplete="current-password"
                     autoFocus
+                    onChange={(e) => setLoginUser({ ...loginUser, password: e.target.value })}
                 />
 
                 <FormControlLabel
                     control={<CheckBox value = "remember" color = "primary"/>}
                     label={"Remember Me"}
                 />
-
                 <Button
                     type ="submit"
                     fullWidth
                     variant = "contained"
                     color = "primary"
-                    onClick = {() => {
-                        Auth.login(() => {
-                            lg.history.push("/test");
-                        })
-                    }}
                     className={classes.submit}
                 >
                     Sign In
@@ -71,6 +128,12 @@ const Login = ({lg}) => {
                     <Grid item>
                         Register
                     </Grid>
+                    <Link to="/test"> TEST </Link>
+                    <Button onClick = {() => {
+                        Auth.logout(() => {
+                            lg.history.push("/");
+                        })
+                    }} > Log out </Button>
                 </Grid>
             </form>
         </div>

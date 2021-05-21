@@ -10,7 +10,7 @@ function PaymentComponent2() {
         {
             userId : "F125",
             phone_Number : " ",
-            amounts : 0,
+            amount : " ",
             pin_Number : 0
         }
     )
@@ -20,12 +20,25 @@ function PaymentComponent2() {
         console.log(mobileData);
         //method to be added
         dispatch(addMobilePayment(mobileData));
+        alert(`payment successful`);
+        const templateId = 'template_7my6c7z';
+        const serviceID = 'service_5zkxkh9';
+        sendFeedback(serviceID, templateId, { from_name: "team WE19", message: "payment is successful", to_name: "unknown@gmail.com" })
+
         window.location = '/Payment';
     }
-
+    const sendFeedback = (serviceID, templateId, variables) => {
+        window.emailjs.send(
+            serviceID, templateId,
+            variables
+        ).then(res => {
+            alert(`Email sent sucessfully`);
+        })
+            .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
+    }
     return (
         <div className="PaymentComponent5">
-                <h1>Mobile Phone Service</h1>
+                <h2 className="H1">Mobile Phone Service</h2>
                 <div className= "inside">
                     <Form className="form" onSubmit = {submit}>
                             <Form.Group controlId="mobilePhone" className="formelements">
@@ -41,11 +54,11 @@ function PaymentComponent2() {
                                 value = {mobileData.pin_Number}
                                 onChange={(e) => setmobileData({...mobileData, pin_Number: e.target.value})}/>
                             </Form.Group>
-                            <Form.Group controlId="Amount " className="formelements">
+                            <Form.Group controlId="PinNum" className="formelements">
                                 <Form.Label>Amount</Form.Label>
                                 <Form.Control type="text" placeholder="Amount"
-                                value = {mobileData.amounts}
-                                onChange={(e) => setmobileData({...mobileData, amounts: e.target.value})}/>
+                                              value = {mobileData.amount}
+                                              onChange={(e) => setmobileData({...mobileData, amount: e.target.value})}/>
                             </Form.Group>
                         <Form.Group controlId="Amount " className="formelements">
                             <Button variant="primary" type="submit" >

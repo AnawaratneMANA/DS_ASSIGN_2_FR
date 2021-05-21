@@ -8,5 +8,26 @@ export const createUser = (user) => async (dispatch) => {
     } catch (error){
         console.log(error);
     }
-    //Get return value.
+}
+
+export const loginUserValidation = (user) => async () => {
+    try {
+        //Call a different method to validate users.
+        const data = await api.validateUser(user);
+        return data;
+        //Get the return value. (Payload data = return value from the API.
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getTheIdOfValidatedUser = (user) => async () => {
+    try {
+        //Call a different method to validate users.
+        const data = await api.validateUser(user);
+        return data;
+        //Get the return value. (Payload data = return value from the API.
+    } catch (error) {
+        console.log(error);
+    }
 }
