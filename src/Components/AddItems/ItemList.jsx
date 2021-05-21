@@ -3,6 +3,7 @@ import {  Link } from 'react-router-dom';
 import axios from 'axios';
 import {Button} from "react-bootstrap";
 import {Container} from "@material-ui/core";
+import {Button} from "react-bootstrap";
 import DeleteIcon from '@material-ui/icons/Delete';
 import Icon from '@material-ui/core/Icon';
 //import Button from '@material-ui/core/Button';
@@ -24,10 +25,11 @@ const Item = props =>(
             {/*    startIcon={<DeleteIcon />}>*/}
             {/*    Delete*/}
             {/*</Button>}*/}
-            <Link to={"/itemlist/update-item/"+props.displayitem.id}>edit</Link> |
-            <a href="#" onClick={() => {
+
+            <Button to={"/itemlist/update-item/"+props.displayitem.id}>edit</Button> |
+            <Button onClick={() => {
                                     props.deleteValues(props.displayitem.id)
-                                }}>delete</a>
+                                }}>delete</Button>
         </td>
     </tr>
 )
