@@ -21,6 +21,7 @@ import Cart from "./Components/Cart/Cart";
 import CartItem from "./Components/Cart/CartItem/CartItem";
 import uuid from "uuid";
 import {ClassItemModel} from "./Components/Cart/CartItem/ClassItemModel";
+import AboutUs from "./Components/AboutUs/AboutUs";
 const App = () => {
     const dispatch = useDispatch();
     var stringArray = [];
@@ -104,7 +105,9 @@ const App = () => {
                         <Cart cart={cartItems} total={cartTotal} removeFromCart={removeFromCart} />
                     </Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
-
+                    <Route exact path="/about">
+                        <AboutUs/>
+                    </Route>
                 </Switch>
             </BrowserRouter>
 
