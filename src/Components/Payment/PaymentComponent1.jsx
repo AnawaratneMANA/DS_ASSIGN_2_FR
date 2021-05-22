@@ -7,19 +7,19 @@ import {Container, Paper} from '@material-ui/core';
 import axios from "axios";
 
 
-function PaymentComponent1() {
+function PaymentComponent1({total}) {
     const dispatch = useDispatch();
     const user = localStorage.getItem('userid');
     const email = localStorage.getItem('email');
     console.log(user);
-    console.log(email);
+    console.log(total);
     const [creditCardData, setCreditCardData] = useState(
         {
             userId : user,
             creditCardNumber : " ",
             creditCardUser : " ",
             cvc_Number : 0,
-            amount : " "
+            amount : total
         }
     )
 
