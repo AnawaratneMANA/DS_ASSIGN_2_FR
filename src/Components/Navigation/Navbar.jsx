@@ -56,7 +56,7 @@ const Navbar = ({cartlen}) => {
                 <div className={classes.button}>
                     <IconButton>
                         <Link to="/cart">
-                        <Badge badgeContent={ () => cartlen} color="secondary">
+                        <Badge badgeContent={cartlen.toString()} color="secondary">
                             <ShoppingCart  style={{fill: "White"}}/>
                         {/*</Badge>*/}
                         </Badge>

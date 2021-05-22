@@ -39,10 +39,22 @@ const App = () => {
 
 
     const addToCart = (item) => {
-        setCartItems([...cartItems,item]);
-        console.log(item.price)
-        console.log(typeof item.price)
-        finalBillAmount();
+
+        let itemStats = true;
+        for (let i=0;i<cartItems.length;i++){
+            if(cartItems[i].id === item.id){
+                cartItems[i].qun = cartItems[i].qun + 1;
+                itemStats = false;
+                finalBillAmount()
+            }
+        }
+
+        if(itemStats){
+            item.qun = 1;
+            setCartItems([...cartItems,item]);
+            finalBillAmount()
+        }
+
     }
 
     const removeFromCart = (item) => {
@@ -56,7 +68,7 @@ const App = () => {
         let total = 0;
         for (let i = 0; i < cartItems.length; i++){
             let price = parseFloat(cartItems[i].price);
-            total = total + price;
+            total = total + (price * cartItems[i].qun);
         }
         setCartTotal(total);
     }
@@ -89,7 +101,7 @@ const App = () => {
                         <PaymentComponent1/>
                     </Route>
                     <Route exact path="/cart">
-                        <Cart cart={cartItems} total={cartTotal} />
+                        <Cart cart={cartItems} total={cartTotal} removeFromCart={removeFromCart} />
                     </Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
 

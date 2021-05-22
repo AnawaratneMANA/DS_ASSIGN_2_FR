@@ -4,7 +4,7 @@ import useStyles from './styles'
 import CartItem from './CartItem/CartItem'
 import {Link} from "react-router-dom";
 
-function Cart({ cart , total }) {
+function Cart({ cart , total ,removeFromCart}) {
     const classes = useStyles();
     const EmptyCart = () => (
         <Typography variant = "subtitle1" className={classes.testing}> You Have No Items Currently In the Cart. Please Add items.</Typography>
@@ -14,7 +14,7 @@ function Cart({ cart , total }) {
             <Grid container spacing={3}>
                 {cart.map((item) =>(
                     <Grid item xs={12} sm={4} key={item.id}>
-                        <CartItem item={item} />
+                        <CartItem item={item} removeFromCart={removeFromCart} />
                     </Grid>
                 ))}
             </Grid>
