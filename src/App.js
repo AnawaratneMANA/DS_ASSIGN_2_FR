@@ -30,26 +30,38 @@ const App = () => {
      *  pass the JSON as a prop to Store component.
      */
     const [cartItems, setCartItems] = useState([]);
-    const [cartItem, setCartItem] = useState([]);
-    //Array Testing.
-    const cartitems = [
-        ]
+    const [cartTotal, setCartTotal] = useState(0);
+
+    useEffect(() => {
+        finalBillAmount();
+    }, [cartItems]);
+
 
 
     const addToCart = (item) => {
-        let cartitem = new ClassItemModel(item.id, item.title, item.price, item.description, item.image);
-        cartitems.push(cartitem);
-        console.log("Testing");
+        setCartItems([...cartItems,item]);
+        console.log(item.price)
+        console.log(typeof item.price)
+        finalBillAmount();
     }
 
-    const removeCartItem = () => {
+    const removeFromCart = (item) => {
+        let hardCopy = [...cartItems];
+        hardCopy = hardCopy.filter((cartItem) => cartItem.id !== item.id);
+        setCartItems(hardCopy);
+    };
 
+    const finalBillAmount = () => {
+
+        let total = 0;
+        for (let i = 0; i < cartItems.length; i++){
+            let price = parseFloat(cartItems[i].price);
+            total = total + price;
+        }
+        setCartTotal(total);
     }
 
-    const finalBillAmount = (list, finalAmount, userId) => {
-        //Navigation bar counter implementation.
-        //set parameter values and created object , return the object.
-    }
+
 
     useEffect(() => {
         dispatch(getItems());
@@ -58,10 +70,12 @@ const App = () => {
     return (
         <div className="">
             <BrowserRouter>
-                <Navbar cartitems={cartitems}/>
+                <Navbar cartlen={cartItems.length}/>
                 <Switch>
                     <Route exact path="/login" component={LoginPage}></Route>
-                    <ProtectedRoute exact path="/payment" component={Payment}></ProtectedRoute>
+                    <ProtectedRoute exact path="/payment" >
+                        <Payment cartTotal={cartTotal}/>
+                    </ProtectedRoute>
                     <Route exact path="/registration" component={RegistrationPage}></Route>
                     <Route exact path="/">
                         <Product addToCart={addToCart}/>
@@ -75,7 +89,7 @@ const App = () => {
                         <PaymentComponent1/>
                     </Route>
                     <Route exact path="/cart">
-                        <Cart cart={cartitems}/>
+                        <Cart cart={cartItems} total={cartTotal} />
                     </Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
 
