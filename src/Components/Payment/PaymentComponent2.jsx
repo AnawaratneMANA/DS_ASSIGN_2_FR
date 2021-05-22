@@ -4,7 +4,7 @@ import {Form, Button} from 'react-bootstrap';
 import {useDispatch} from 'react-redux';
 import {addMobilePayment} from '../../actions/mobile';
 
-function PaymentComponent2() {
+function PaymentComponent2({total}) {
     const dispatch = useDispatch();
     const user = localStorage.getItem('userid');
     const email = localStorage.getItem('email');
@@ -12,7 +12,7 @@ function PaymentComponent2() {
         {
             userId : user,
             phone_Number : " ",
-            amount : " ",
+            amount : total,
             pin_Number : 0
         }
     )

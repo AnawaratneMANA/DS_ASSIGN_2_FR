@@ -6,6 +6,7 @@ import PaymentComponent6 from "./PaymentComponent6";
 import PaymentComponent5 from "./PaymentComponent5";
 import "./PaymentStyle.css";
 function Payment({cartTotal}) {
+    const email = localStorage.getItem('email');
     return (<React.Fragment>
 
             <div className="Payment">
@@ -15,16 +16,17 @@ function Payment({cartTotal}) {
                     <div className="row">
                         <center>
                         <h1>User Full Payment : {cartTotal}</h1>
+                            <h1>email : {email}</h1>
                         </center>
                     </div>
                     <div className="row">
                         <h1>Credit Card Interface</h1>
-                        <PaymentComponent1/>
-                        <PaymentComponent5/>
+                        <PaymentComponent1 total ={cartTotal}/>
+                        <PaymentComponent5 />
                     </div>
                     <div className="row">
                         <h1>Phone Detail Interface</h1>
-                        <PaymentComponent2/>
+                        <PaymentComponent2 total ={cartTotal}/>
                         <PaymentComponent6/>
                     </div>
                     </center>
