@@ -121,6 +121,22 @@ const Login = ({lg}) => {
                 >
                     Sign In
                 </Button>
+
+                <Button
+                    type ="button"
+                    fullWidth
+                    variant = "contained"
+                    color = "primary"
+                    className={classes.submit}
+                    onClick = {() => {
+                        Auth.logout(() => {
+                            lg.history.push("/");
+                        })
+                    }}
+                >
+                    Log out
+                </Button>
+
                 <Grid container>
                     <Grid item xs>
                         Forgot password?
@@ -128,12 +144,6 @@ const Login = ({lg}) => {
                     <Grid item>
                         Register
                     </Grid>
-                    <Link to="/test"> TEST </Link>
-                    <Button onClick = {() => {
-                        Auth.logout(() => {
-                            lg.history.push("/");
-                        })
-                    }} > Log out </Button>
                 </Grid>
             </form>
         </div>

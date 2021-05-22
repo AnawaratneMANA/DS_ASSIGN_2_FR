@@ -3,7 +3,6 @@ import {  Link } from 'react-router-dom';
 import axios from 'axios';
 import {Button} from "react-bootstrap";
 import {Container} from "@material-ui/core";
-import {Button} from "react-bootstrap";
 import DeleteIcon from '@material-ui/icons/Delete';
 import Icon from '@material-ui/core/Icon';
 //import Button from '@material-ui/core/Button';

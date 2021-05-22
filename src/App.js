@@ -12,7 +12,6 @@ import AddItems from './Components/AddItems/AddItems';
 import ItemList from './Components/AddItems/ItemList';
 import LoginPage from "./Components/Login/LoginPage";
 import PaymentComponent3 from "./Components/Payment/PaymentComponent3";
-
 import RegistrationPage from './Components/Registration/RegistrationPage'
 import {ProtectedRoute} from "./Validations/protectedRoute";
 import Test from "./Components/Testing/TestingComponent";
@@ -21,24 +20,25 @@ import Cart from "./Components/Cart/Cart";
 import CartItem from "./Components/Cart/CartItem/CartItem";
 import uuid from "uuid";
 import {ClassItemModel} from "./Components/Cart/CartItem/ClassItemModel";
+import AboutUs from "./Components/AboutUs/AboutUs";
 const App = () => {
     const dispatch = useDispatch();
-    var stringArray = [];
     //Store Population Method.
     /**
      *  Call `fetchProductItems` inside a useEffect hook.
      *  pass the JSON as a prop to Store component.
      */
-    const [cartItems, setCartItems] = useState([]);
-    const [cartItem, setCartItem] = useState([]);
-    //Array Testing.
+        //Array Testing.
     const cartitems = [
         ]
+    const [cartItems, setCartItems] = useState(0);
+    const [cartItem, setCartItem] = useState([]);
+
 
 
     const addToCart = (item) => {
         let cartitem = new ClassItemModel(item.id, item.title, item.price, item.description, item.image);
-        cartitems.push(cartitem);
+        cartitems.push(cartitem)
         console.log("Testing");
     }
 
@@ -78,7 +78,9 @@ const App = () => {
                         <Cart cart={cartitems}/>
                     </Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
-
+                    <Route exact path="/about">
+                        <AboutUs/>
+                    </Route>
                 </Switch>
             </BrowserRouter>
 
