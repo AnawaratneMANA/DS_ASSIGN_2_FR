@@ -12,6 +12,7 @@ import AddItems from './Components/AddItems/AddItems';
 import ItemList from './Components/AddItems/ItemList';
 import LoginPage from "./Components/Login/LoginPage";
 import PaymentComponent3 from "./Components/Payment/PaymentComponent3";
+
 import RegistrationPage from './Components/Registration/RegistrationPage'
 import {ProtectedRoute} from "./Validations/protectedRoute";
 import Test from "./Components/Testing/TestingComponent";
@@ -23,33 +24,57 @@ import {ClassItemModel} from "./Components/Cart/CartItem/ClassItemModel";
 import AboutUs from "./Components/AboutUs/AboutUs";
 const App = () => {
     const dispatch = useDispatch();
+    var stringArray = [];
     //Store Population Method.
     /**
      *  Call `fetchProductItems` inside a useEffect hook.
      *  pass the JSON as a prop to Store component.
      */
-        //Array Testing.
-    const cartitems = [
-        ]
-    const [cartItems, setCartItems] = useState(0);
-    const [cartItem, setCartItem] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
+    const [cartTotal, setCartTotal] = useState(0);
+
+    useEffect(() => {
+        finalBillAmount();
+    }, [cartItems]);
 
 
 
     const addToCart = (item) => {
-        let cartitem = new ClassItemModel(item.id, item.title, item.price, item.description, item.image);
-        cartitems.push(cartitem)
-        console.log("Testing");
+
+        let itemStats = true;
+        for (let i=0;i<cartItems.length;i++){
+            if(cartItems[i].id === item.id){
+                cartItems[i].qun = cartItems[i].qun + 1;
+                itemStats = false;
+                finalBillAmount()
+            }
+        }
+
+        if(itemStats){
+            item.qun = 1;
+            setCartItems([...cartItems,item]);
+            finalBillAmount()
+        }
+
     }
 
-    const removeCartItem = () => {
+    const removeFromCart = (item) => {
+        let hardCopy = [...cartItems];
+        hardCopy = hardCopy.filter((cartItem) => cartItem.id !== item.id);
+        setCartItems(hardCopy);
+    };
 
+    const finalBillAmount = () => {
+
+        let total = 0;
+        for (let i = 0; i < cartItems.length; i++){
+            let price = parseFloat(cartItems[i].price);
+            total = total + (price * cartItems[i].qun);
+        }
+        setCartTotal(total);
     }
 
-    const finalBillAmount = (list, finalAmount, userId) => {
-        //Navigation bar counter implementation.
-        //set parameter values and created object , return the object.
-    }
+
 
     useEffect(() => {
         dispatch(getItems());
@@ -58,10 +83,12 @@ const App = () => {
     return (
         <div className="">
             <BrowserRouter>
-                <Navbar cartitems={cartitems}/>
+                <Navbar cartlen={cartItems.length}/>
                 <Switch>
                     <Route exact path="/login" component={LoginPage}></Route>
-                    <ProtectedRoute exact path="/payment" component={Payment}></ProtectedRoute>
+                    <ProtectedRoute exact path="/payment" >
+                        <Payment cartTotal={cartTotal}/>
+                    </ProtectedRoute>
                     <Route exact path="/registration" component={RegistrationPage}></Route>
                     <Route exact path="/">
                         <Product addToCart={addToCart}/>
@@ -75,7 +102,7 @@ const App = () => {
                         <PaymentComponent1/>
                     </Route>
                     <Route exact path="/cart">
-                        <Cart cart={cartitems}/>
+                        <Cart cart={cartItems} total={cartTotal} removeFromCart={removeFromCart} />
                     </Route>
                     <ProtectedRoute exact path="/test" component={Test}/>
                     <Route exact path="/about">

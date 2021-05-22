@@ -71,9 +71,7 @@ export default makeStyles((theme) => ({
         textDecoration: 'none',
         display: 'flex',
         fontWeight: "bold",
-    }
-
-    },
-
+    },},
     //Add Styles to the Navigation bar buttons.
+
 }));
