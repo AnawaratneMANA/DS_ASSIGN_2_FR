@@ -10,15 +10,15 @@ const CartItem = ({item}) => {
             <CardMedia image={item.image} alt={item.name} className={classes.media}/>
             <CardContent>
                 <Typography variant="h4">{item.name}</Typography>
-                <Typography variant="h5">{item.discription}</Typography>
+                <Typography variant="h5">{item.price}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <div className={classes.buttons}>
                     <Button type="button" size="small">+</Button>
-                    <Typography>{item.price}</Typography>
+                    <Typography>{item.quantity}</Typography>
                     <Button type="button" size="small">-</Button>
                 </div>
-                <Button variant="contained" type="button" color="secondary">Remove</Button>
+                <Button variant="contained" type="button" color="secondary" >Remove</Button>
             </CardActions>
         </Card>
     )
