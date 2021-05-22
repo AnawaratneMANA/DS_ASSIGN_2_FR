@@ -12,7 +12,8 @@ const Payment = props =>(
         <td>{props.displayPhoneDetails.pin_Number}</td>
         <td>{props.displayPhoneDetails.amount}</td>
         <td>
-            <Button to={"/payment/update-payment2/"+props.displayPhoneDetails.id}>edit</Button> |
+            <Link to={"/payment/update-payment2/"+props.displayPhoneDetails.id}>
+            <Button>edit</Button> </Link> |
             <Button onClick={() => {
                 props.deleteValues(props.displayPhoneDetails.id)
             }}>delete</Button>

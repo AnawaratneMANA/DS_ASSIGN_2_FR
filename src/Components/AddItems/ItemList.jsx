@@ -25,7 +25,7 @@ const Item = props =>(
             {/*    Delete*/}
             {/*</Button>}*/}
 
-            <Button to={"/itemlist/update-item/"+props.displayitem.id}>edit</Button> |
+            <Link to={"/itemlist/update-item/"+props.displayitem.id}><Button>edit</Button></Link>
             <Button onClick={() => {
                                     props.deleteValues(props.displayitem.id)
                                 }}>delete</Button>
