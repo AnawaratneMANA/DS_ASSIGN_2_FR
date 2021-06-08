@@ -112,7 +112,6 @@ const App = () => {
             </BrowserRouter>
 
             {/* <Login/> */}
-
             {/* for checking purpose */}
             {/*<Payment/>*/}
 

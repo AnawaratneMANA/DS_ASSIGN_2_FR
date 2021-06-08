@@ -9,7 +9,7 @@ const CartItem = ({item ,removeFromCart}) => {
         <Card>
             <CardMedia image={item.image} alt={item.name} className={classes.media}/>
             <CardContent>
-                <Typography variant="h4">{item.name}</Typography>
+                <Typography variant="h4">{item.title}</Typography>
                 <Typography variant="h5">{item.price}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
